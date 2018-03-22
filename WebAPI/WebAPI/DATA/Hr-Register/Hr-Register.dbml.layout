@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Hr-Register">
+  <DataContextMoniker Name="/Hr_RegisterDataContext" />
+  <nestedChildShapes>
+    <classShape Id="edd3b40e-0899-41d1-88b0-891d432d526b" absoluteBounds="0.5, 0.5, 2, 5.6169254557291657">
+      <DataClassMoniker Name="/Hr_RegisterDataContext/STEP_ONE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ebe71c74-d10d-4544-b487-468aa0570cf4" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 5.0569254557291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
