@@ -20,15 +20,11 @@ namespace WebAPI.Models.Hr_Register
         [ActionName("Regis_Step_One")]
         public IEnumerable<RetName> Regis_Step_One(insert_Step_One item)
         {
-            //string strSQL = "SELECT POSITION,FULLNAME_TH FROM STEP_ONE";
             List<RetName> results = new List<RetName>();
 
             try
             {
-                //string USERNO = item.USERNO;
-                //if (item.USERNO == null) {
                 string USERNO = InsertData(item);
-                //}
 
                 RetName res = new RetName();
                 res.status = "S";
@@ -47,95 +43,95 @@ namespace WebAPI.Models.Hr_Register
             return results.ToArray();
         }
 
-        [HttpPost]
-        [ActionName("Regis_Step_Two")]
-        public IEnumerable<RetName> Regis_Step_Two(insert_Step_Two item)
-        {
-            //string strSQL = "SELECT POSITION,FULLNAME_TH FROM STEP_ONE";
-            List<RetName> results = new List<RetName>();
+        //[HttpPost]
+        //[ActionName("Regis_Step_Two")]
+        //public IEnumerable<RetName> Regis_Step_Two(insert_Step_Two item)
+        //{
+        //    //string strSQL = "SELECT POSITION,FULLNAME_TH FROM STEP_ONE";
+        //    List<RetName> results = new List<RetName>();
 
-            try
-            {
-                //InsertData(item);
+        //    try
+        //    {
+        //        //InsertData(item);
 
-                RetName res = new RetName();
-                res.status = "S";
-                res.message = "Insert success";
-                results.Add(res);
-            }
-            catch (Exception ex)
-            {
-                RetName res = new RetName();
-                res.status = "F";
-                res.message = ex.Message;
-                results.Add(res);
-            }
+        //        RetName res = new RetName();
+        //        res.status = "S";
+        //        res.message = "Insert success";
+        //        results.Add(res);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        RetName res = new RetName();
+        //        res.status = "F";
+        //        res.message = ex.Message;
+        //        results.Add(res);
+        //    }
 
-            return results.ToArray();
-        }
+        //    return results.ToArray();
+        //}
 
         // ---------------------------------------------------------------------------------------------------------------------
 
 
-        [HttpPost]
-        [ActionName("Back_Two_To_One")]
-        public IEnumerable<insert_Step_One> Back_Two_To_One(RetName item)
-        {
-            //string strSQL = "SELECT POSITION,FULLNAME_TH FROM STEP_ONE";
-            List<insert_Step_One> results = new List<insert_Step_One>();
+        //[HttpPost]
+        //[ActionName("Back_Two_To_One")]
+        //public IEnumerable<insert_Step_One> Back_Two_To_One(RetName item)
+        //{
+        //    //string strSQL = "SELECT POSITION,FULLNAME_TH FROM STEP_ONE";
+        //    List<insert_Step_One> results = new List<insert_Step_One>();
 
-            try
-            {
-                using (Hr_RegisterDataContext bx = new Hr_RegisterDataContext())
-                {
-                    var str = (from xx in bx.STEP_ONEs
-                               where xx.USERNO == item.USERNO
-                               select xx).FirstOrDefault();
+        //    try
+        //    {
+        //        using (Hr_RegisterDataContext bx = new Hr_RegisterDataContext())
+        //        {
+        //            var str = (from xx in bx.STEP_ONEs
+        //                       where xx.USERNO == item.USERNO
+        //                       select xx).FirstOrDefault();
 
-                    insert_Step_One res = new insert_Step_One();
+        //            insert_Step_One res = new insert_Step_One();
 
-                    //res.USERNO = str.USERNO;
-                    //res.POSITION = item.POSITION;
-                    //res.FULLNAME_TH = item.FULLNAME_TH;
-                    //res.NICKNAME_TH = item.NICKNAME_TH;
-                    //res.FULLNAME_EN = item.FULLNAME_EN;
-                    //res.NICKNAME_EN = item.NICKNAME_EN;
-                    //res.PEOPLEID = item.PEOPLEID;
-                    //res.ZONE = item.ZONE;
-                    //res.PROVINCE_BIRTH = item.PROVINCE_BIRTH;
-                    //res.BIRTHDATE = item.BIRTHDATE;
-                    //res.AGE = item.AGE;
-                    //res.WEIGHT = item.WEIGHT;
-                    //res.HEIGHT = item.HEIGHT;
-                    //res.ADDR_ROW1 = item.ADDR_ROW1;
-                    //res.ADDR_ROW2 = item.ADDR_ROW2;
-                    //res.ADDR_ROW3 = item.ADDR_ROW3;
-                    //res.ADDR_HOME1 = item.ADDR_HOME1;
-                    //res.ADDR_HOME2 = item.ADDR_HOME2;
-                    //res.ADDR_HOME3 = item.ADDR_HOME3;
-                    //res.ADDR_TEL = item.ADDR_TEL;
-                    //res.ADDR_MOBILE = item.ADDR_MOBILE;
-                    //res.ADDR_EMAIL = item.ADDR_EMAIL;
-                    //res.ADDR_PHOTO = item.ADDR_PHOTO;
-                    //res.WORKDATE = DateTime.Now.AddYears(543);
-                    //res.FLAG = 0;
+        //            //res.USERNO = str.USERNO;
+        //            //res.POSITION = item.POSITION;
+        //            //res.FULLNAME_TH = item.FULLNAME_TH;
+        //            //res.NICKNAME_TH = item.NICKNAME_TH;
+        //            //res.FULLNAME_EN = item.FULLNAME_EN;
+        //            //res.NICKNAME_EN = item.NICKNAME_EN;
+        //            //res.PEOPLEID = item.PEOPLEID;
+        //            //res.ZONE = item.ZONE;
+        //            //res.PROVINCE_BIRTH = item.PROVINCE_BIRTH;
+        //            //res.BIRTHDATE = item.BIRTHDATE;
+        //            //res.AGE = item.AGE;
+        //            //res.WEIGHT = item.WEIGHT;
+        //            //res.HEIGHT = item.HEIGHT;
+        //            //res.ADDR_ROW1 = item.ADDR_ROW1;
+        //            //res.ADDR_ROW2 = item.ADDR_ROW2;
+        //            //res.ADDR_ROW3 = item.ADDR_ROW3;
+        //            //res.ADDR_HOME1 = item.ADDR_HOME1;
+        //            //res.ADDR_HOME2 = item.ADDR_HOME2;
+        //            //res.ADDR_HOME3 = item.ADDR_HOME3;
+        //            //res.ADDR_TEL = item.ADDR_TEL;
+        //            //res.ADDR_MOBILE = item.ADDR_MOBILE;
+        //            //res.ADDR_EMAIL = item.ADDR_EMAIL;
+        //            //res.ADDR_PHOTO = item.ADDR_PHOTO;
+        //            //res.WORKDATE = DateTime.Now.AddYears(543);
+        //            //res.FLAG = 0;
 
-                    //res.status = "S";
-                    //res.message = "Insert success";
-                    //res.USERNO = USERNO;
-                    results.Add(res);
-                }              
-            }
-            catch (Exception ex)
-            {
-                RetName res = new RetName();
-                res.status = "F";
-                res.message = ex.Message;
-                //results.Add(res);
-            }
+        //            //res.status = "S";
+        //            //res.message = "Insert success";
+        //            //res.USERNO = USERNO;
+        //            results.Add(res);
+        //        }              
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        RetName res = new RetName();
+        //        res.status = "F";
+        //        res.message = ex.Message;
+        //        //results.Add(res);
+        //    }
 
-            return results.ToArray();
-        }
+        //    return results.ToArray();
+        //}
 
         // ---------------------------------------------------------------------------------------------------------------------
 
@@ -162,7 +158,7 @@ namespace WebAPI.Models.Hr_Register
                         Step_One.PEOPLEID = item.PEOPLEID;
                         Step_One.ZONE = item.ZONE;
                         Step_One.PROVINCE_BIRTH = item.PROVINCE_BIRTH;
-                        //Step_One.BIRTHDATE = item.BIRTHDATE.AddYears(543);
+                        Step_One.BIRTHDATE = item.BIRTHDATE.AddYears(543);
                         Step_One.AGE = item.AGE;
                         Step_One.WEIGHT = item.WEIGHT;
                         Step_One.HEIGHT = item.HEIGHT;

@@ -9,8 +9,8 @@ namespace WebAPI.Models.Hr_Register
     interface IRegisRepository
     {
         IEnumerable<RetName> Regis_Step_One(insert_Step_One id);
-        IEnumerable<RetName> Regis_Step_Two(insert_Step_Two id);
+        //IEnumerable<RetName> Regis_Step_Two(insert_Step_Two id);
 
-        IEnumerable<insert_Step_One> Back_Two_To_One(RetName id);
+        //IEnumerable<insert_Step_One> Back_Two_To_One(RetName id);
     }
 }
