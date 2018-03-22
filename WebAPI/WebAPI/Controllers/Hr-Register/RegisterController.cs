@@ -22,5 +22,12 @@ namespace WebAPI.Controllers.Hr_Register
         {
             return repository.Regis_Step_Two(id);
         }
+
+        [HttpPost]
+        [ActionName("Back_Two_To_One")]
+        public IEnumerable<insert_Step_One> Back_Two_To_One([FromBody]RetName id)
+        {
+            return repository.Back_Two_To_One(id);
+        }
     }
 }
