@@ -25,10 +25,10 @@ namespace WebAPI.Models.Hr_Register
 
             try
             {
-                string USERNO = item.USERNO;
-                if (item.USERNO == null) {
-                    USERNO = InsertData(item);
-                }
+                //string USERNO = item.USERNO;
+                //if (item.USERNO == null) {
+                  string  USERNO = InsertData(item);
+                //}
 
                 RetName res = new RetName();
                 res.status = "S";
@@ -176,7 +176,7 @@ namespace WebAPI.Models.Hr_Register
                         Step_One.ADDR_MOBILE = item.ADDR_MOBILE;
                         Step_One.ADDR_EMAIL = item.ADDR_EMAIL;
                         Step_One.ADDR_PHOTO = item.ADDR_PHOTO;
-                        Step_One.WORKDATE = null;
+                        Step_One.WORKDATE = DateTime.Now;
                         Step_One.FLAG = 0;
 
                         bx.STEP_ONEs.InsertOnSubmit(Step_One);
