@@ -25,11 +25,12 @@ namespace WebAPI.Models.Hr_Register
 
             try
             {
-                InsertData(item);
+                string USERNO = InsertData(item);
 
                 RetName res = new RetName();
                 res.status = "S";
                 res.message = "Insert success";
+                res.USERNO = USERNO;
                 results.Add(res);
             }
             catch (Exception ex)
@@ -72,8 +73,9 @@ namespace WebAPI.Models.Hr_Register
 
         // ---------------------------------------------------------------------------------------------------------------------
 
-        private void InsertData(insert_Step_One item)
+        private string InsertData(insert_Step_One item)
         {
+            string USERNO;
             using (TransactionScope ts = new TransactionScope())
             {
                 using (Hr_RegisterDataContext bx = new Hr_RegisterDataContext())
@@ -82,7 +84,8 @@ namespace WebAPI.Models.Hr_Register
                     {
                         var Step_One = new STEP_ONE();
 
-                        string tketNo = ticketNo();
+                        string tketNo = GenNo();
+                        USERNO = tketNo;
 
                         Step_One.USERNO = tketNo;
                         Step_One.POSITION = item.POSITION;
@@ -107,7 +110,7 @@ namespace WebAPI.Models.Hr_Register
                         Step_One.ADDR_MOBILE = item.ADDR_MOBILE;
                         Step_One.ADDR_EMAIL = item.ADDR_EMAIL;
                         Step_One.ADDR_PHOTO = item.ADDR_PHOTO;
-                        Step_One.WORKDATE = DateTime.Today;
+                        Step_One.WORKDATE = DateTime.Now.AddYears(543);
                         Step_One.FLAG = 0;
 
                         bx.STEP_ONEs.InsertOnSubmit(Step_One);
@@ -121,11 +124,12 @@ namespace WebAPI.Models.Hr_Register
                     }
                 }
             }
+            return USERNO;
         }
 
 
 
-        private string ticketNo()
+        private string GenNo()
         {
             string runNo = "HR"; //IT17000009
             string strRun = "";
