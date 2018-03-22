@@ -27,7 +27,7 @@ namespace WebAPI.Models.Hr_Register
             {
                 //string USERNO = item.USERNO;
                 //if (item.USERNO == null) {
-                  string  USERNO = InsertData(item);
+                string  USERNO = InsertData(item);
                 //}
 
                 RetName res = new RetName();
@@ -162,7 +162,7 @@ namespace WebAPI.Models.Hr_Register
                         Step_One.PEOPLEID = item.PEOPLEID;
                         Step_One.ZONE = item.ZONE;
                         Step_One.PROVINCE_BIRTH = item.PROVINCE_BIRTH;
-                        Step_One.BIRTHDATE = item.BIRTHDATE.AddYears(543);
+                        //Step_One.BIRTHDATE = item.BIRTHDATE.AddYears(543);
                         Step_One.AGE = item.AGE;
                         Step_One.WEIGHT = item.WEIGHT;
                         Step_One.HEIGHT = item.HEIGHT;
@@ -176,7 +176,7 @@ namespace WebAPI.Models.Hr_Register
                         Step_One.ADDR_MOBILE = item.ADDR_MOBILE;
                         Step_One.ADDR_EMAIL = item.ADDR_EMAIL;
                         Step_One.ADDR_PHOTO = item.ADDR_PHOTO;
-                        Step_One.WORKDATE = DateTime.Now;
+                        //Step_One.WORKDATE = DateTime.Now;
                         Step_One.FLAG = 0;
 
                         bx.STEP_ONEs.InsertOnSubmit(Step_One);
