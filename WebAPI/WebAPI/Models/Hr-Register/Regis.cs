@@ -17,6 +17,7 @@ namespace WebAPI.Models.Hr_Register
     [JsonObject(IsReference = true)]
     public class insert_Step_One
     {
+        public string USERNO { get; set; }
         public string POSITION { get; set; }
         public string FULLNAME_TH { get; set; }
         public string NICKNAME_TH { get; set; }
