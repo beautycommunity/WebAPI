@@ -162,7 +162,7 @@ namespace WebAPI.Models.Hr_Register
                         Step_One.PEOPLEID = item.PEOPLEID;
                         Step_One.ZONE = item.ZONE;
                         Step_One.PROVINCE_BIRTH = item.PROVINCE_BIRTH;
-                        Step_One.BIRTHDATE = item.BIRTHDATE.AddYears(543);
+                        //Step_One.BIRTHDATE = item.BIRTHDATE.AddYears(543);
                         Step_One.AGE = item.AGE;
                         Step_One.WEIGHT = item.WEIGHT;
                         Step_One.HEIGHT = item.HEIGHT;
