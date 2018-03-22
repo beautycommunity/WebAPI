@@ -27,7 +27,7 @@ namespace WebAPI.Models.Hr_Register
             {
                 //string USERNO = item.USERNO;
                 //if (item.USERNO == null) {
-                string  USERNO = InsertData(item);
+                string USERNO = InsertData(item);
                 //}
 
                 RetName res = new RetName();

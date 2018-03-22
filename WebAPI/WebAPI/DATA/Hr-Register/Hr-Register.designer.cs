@@ -191,7 +191,7 @@ namespace WebAPI.DATA.Hr_Register
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNO", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNO", DbType="VarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string USERNO
 		{
 			get
@@ -371,7 +371,7 @@ namespace WebAPI.DATA.Hr_Register
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BIRTHDATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BIRTHDATE", DbType="Date")]
 		public System.Nullable<System.DateTime> BIRTHDATE
 		{
 			get
