@@ -17,31 +17,31 @@ namespace WebAPI.Models.Hr_Register
     [JsonObject(IsReference = true)]
     public class insert_Step_One
     {
-        public string USERNO { get; set; }
-        public string POSITION { get; set; }
-        public string FULLNAME_TH { get; set; }
-        public string NICKNAME_TH { get; set; }
-        public string FULLNAME_EN { get; set; }
-        public string NICKNAME_EN { get; set; }
-        public string PEOPLEID { get; set; }
-        public string ZONE { get; set; }
-        public string PROVINCE_BIRTH { get; set; }
-        public DateTime BIRTHDATE { get; set; }
-        public int AGE { get; set; }
-        public int WEIGHT { get; set; }
-        public int HEIGHT { get; set; }
-        public string ADDR_ROW1 { get; set; }
-        public string ADDR_ROW2 { get; set; }
-        public string ADDR_ROW3 { get; set; }
-        public string ADDR_HOME1 { get; set; }
-        public string ADDR_HOME2 { get; set; }
-        public string ADDR_HOME3 { get; set; }
-        public string ADDR_TEL { get; set; }
-        public string ADDR_MOBILE { get; set; }
-        public string ADDR_EMAIL { get; set; }
-        public string ADDR_PHOTO { get; set; }
-        public DateTime WORKDATE { get; set; }
-        public int FLAG { get; set; }
+        public string _USERNO { get; set; }
+        public string _POSITION { get; set; }
+        public string _FULLNAME_TH { get; set; }
+        public string _NICKNAME_TH { get; set; }
+        public string _FULLNAME_EN { get; set; }
+        public string _NICKNAME_EN { get; set; }
+        public string _PEOPLEID { get; set; }
+        public string _ZONE { get; set; }
+        public string _PROVINCE_BIRTH { get; set; }
+        public DateTime _BIRTHDATE { get; set; }
+        public int _AGE { get; set; }
+        public int _WEIGHT { get; set; }
+        public int _HEIGHT { get; set; }
+        public string _ADDR_ROW1 { get; set; }
+        public string _ADDR_ROW2 { get; set; }
+        public string _ADDR_ROW3 { get; set; }
+        public string _ADDR_HOME1 { get; set; }
+        public string _ADDR_HOME2 { get; set; }
+        public string _ADDR_HOME3 { get; set; }
+        public string _ADDR_TEL { get; set; }
+        public string _ADDR_MOBILE { get; set; }
+        public string _ADDR_EMAIL { get; set; }
+        public string _ADDR_PHOTO { get; set; }
+        public DateTime _WORKDATE { get; set; }
+        public int _FLAG { get; set; }
     }
 
     [JsonObject(IsReference = true)]
