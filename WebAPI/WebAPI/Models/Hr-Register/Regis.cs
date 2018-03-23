@@ -27,9 +27,9 @@ namespace WebAPI.Models.Hr_Register
         public string _ZONE { get; set; }
         public string _PROVINCE_BIRTH { get; set; }
         public DateTime _BIRTHDATE { get; set; }
-        public int _AGE { get; set; }
-        public int _WEIGHT { get; set; }
-        public int _HEIGHT { get; set; }
+        public int? _AGE { get; set; }
+        public int? _WEIGHT { get; set; }
+        public int? _HEIGHT { get; set; }
         public string _ADDR_ROW1 { get; set; }
         public string _ADDR_ROW2 { get; set; }
         public string _ADDR_ROW3 { get; set; }

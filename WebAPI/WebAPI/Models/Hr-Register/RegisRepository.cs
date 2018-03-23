@@ -24,11 +24,28 @@ namespace WebAPI.Models.Hr_Register
 
             try
             {
-                string USERNO = InsertData(item);
-
+                string USERNO;
+                int Status;
+                if (item._USERNO == null)
+                {
+                    USERNO = InsertData(item);
+                    Status = 1;
+                }
+                else
+                {
+                    USERNO = UpdateData(item);
+                    Status = 2;
+                }
+                
                 RetName res = new RetName();
                 res.status = "S";
-                res.message = "Insert success";
+                if (Status == 1)
+                {
+                    res.message = "Insert success";
+                }else if(Status == 2)
+                {
+                    res.message = "Update success";
+                }
                 res.USERNO = USERNO;
                 results.Add(res);
             }
@@ -73,65 +90,61 @@ namespace WebAPI.Models.Hr_Register
         // ---------------------------------------------------------------------------------------------------------------------
 
 
-        //[HttpPost]
-        //[ActionName("Back_Two_To_One")]
-        //public IEnumerable<insert_Step_One> Back_Two_To_One(RetName item)
-        //{
-        //    //string strSQL = "SELECT POSITION,FULLNAME_TH FROM STEP_ONE";
-        //    List<insert_Step_One> results = new List<insert_Step_One>();
+        [HttpPost]
+        [ActionName("Back_Two_To_One")]
+        public IEnumerable<insert_Step_One> Back_Two_To_One(RetName item)
+        {
+            //string strSQL = "SELECT POSITION,FULLNAME_TH FROM STEP_ONE";
+            List<insert_Step_One> results = new List<insert_Step_One>();
 
-        //    try
-        //    {
-        //        using (Hr_RegisterDataContext bx = new Hr_RegisterDataContext())
-        //        {
-        //            var str = (from xx in bx.STEP_ONEs
-        //                       where xx.USERNO == item.USERNO
-        //                       select xx).FirstOrDefault();
+            try
+            {
+                using (Hr_RegisterDataContext bx = new Hr_RegisterDataContext())
+                {
+                    var str = (from xx in bx.STEP_ONEs
+                               where xx.USERNO == "HR18030010"
+                               select xx).FirstOrDefault();
 
-        //            insert_Step_One res = new insert_Step_One();
+                    insert_Step_One res = new insert_Step_One();
+             
+                    res._USERNO = str.USERNO;
+                    res._POSITION = str.POSITION;
+                    res._FULLNAME_TH = str.FULLNAME_TH;
+                    res._NICKNAME_TH = str.NICKNAME_TH;
+                    res._FULLNAME_EN = str.FULLNAME_EN;
+                    res._NICKNAME_EN = str.NICKNAME_EN;
+                    res._PEOPLEID = str.PEOPLEID;
+                    res._ZONE = str.ZONE;
+                    res._PROVINCE_BIRTH = str.PROVINCE_BIRTH;
+                    res._BIRTHDATE = DateTime.Parse(str.BIRTHDATE.ToString());
+                    res._AGE = str.AGE;
+                    res._WEIGHT = str.WEIGHT;
+                    res._HEIGHT = str.HEIGHT;
+                    res._ADDR_ROW1 = str.ADDR_ROW1;
+                    res._ADDR_ROW2 = str.ADDR_ROW2;
+                    res._ADDR_ROW3 = str.ADDR_ROW3;
+                    res._ADDR_HOME1 = str.ADDR_HOME1;
+                    res._ADDR_HOME2 = str.ADDR_HOME2;
+                    res._ADDR_HOME3 = str.ADDR_HOME3;
+                    res._ADDR_TEL = str.ADDR_TEL;
+                    res._ADDR_MOBILE = str.ADDR_MOBILE;
+                    res._ADDR_EMAIL = str.ADDR_EMAIL;
+                    res._ADDR_PHOTO = str.ADDR_PHOTO;
+                    //res._WORKDATE = DateTime.Now.AddYears(543);
+                    res._FLAG = 0;
+                    results.Add(res);
+                }
+            }
+            catch (Exception ex)
+            {
+                RetName res = new RetName();
+                res.status = "F";
+                res.message = ex.Message;
+                //results.Add(res);
+            }
 
-        //            //res.USERNO = str.USERNO;
-        //            //res.POSITION = item.POSITION;
-        //            //res.FULLNAME_TH = item.FULLNAME_TH;
-        //            //res.NICKNAME_TH = item.NICKNAME_TH;
-        //            //res.FULLNAME_EN = item.FULLNAME_EN;
-        //            //res.NICKNAME_EN = item.NICKNAME_EN;
-        //            //res.PEOPLEID = item.PEOPLEID;
-        //            //res.ZONE = item.ZONE;
-        //            //res.PROVINCE_BIRTH = item.PROVINCE_BIRTH;
-        //            //res.BIRTHDATE = item.BIRTHDATE;
-        //            //res.AGE = item.AGE;
-        //            //res.WEIGHT = item.WEIGHT;
-        //            //res.HEIGHT = item.HEIGHT;
-        //            //res.ADDR_ROW1 = item.ADDR_ROW1;
-        //            //res.ADDR_ROW2 = item.ADDR_ROW2;
-        //            //res.ADDR_ROW3 = item.ADDR_ROW3;
-        //            //res.ADDR_HOME1 = item.ADDR_HOME1;
-        //            //res.ADDR_HOME2 = item.ADDR_HOME2;
-        //            //res.ADDR_HOME3 = item.ADDR_HOME3;
-        //            //res.ADDR_TEL = item.ADDR_TEL;
-        //            //res.ADDR_MOBILE = item.ADDR_MOBILE;
-        //            //res.ADDR_EMAIL = item.ADDR_EMAIL;
-        //            //res.ADDR_PHOTO = item.ADDR_PHOTO;
-        //            //res.WORKDATE = DateTime.Now.AddYears(543);
-        //            //res.FLAG = 0;
-
-        //            //res.status = "S";
-        //            //res.message = "Insert success";
-        //            //res.USERNO = USERNO;
-        //            results.Add(res);
-        //        }              
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        RetName res = new RetName();
-        //        res.status = "F";
-        //        res.message = ex.Message;
-        //        //results.Add(res);
-        //    }
-
-        //    return results.ToArray();
-        //}
+            return results.ToArray();
+        }
 
         // ---------------------------------------------------------------------------------------------------------------------
 
@@ -186,6 +199,35 @@ namespace WebAPI.Models.Hr_Register
                     }
                 }
             }
+            return USERNO;
+        }
+
+        private string UpdateData(insert_Step_One item)
+        {
+            string USERNO;
+            //using (TransactionScope ts = new TransactionScope())
+            //{
+                using (Hr_RegisterDataContext bx = new Hr_RegisterDataContext())
+                {
+                    try
+                    {
+                        var str = (from xx in bx.STEP_ONEs
+                                   where xx.USERNO == item._USERNO
+                                   select xx).FirstOrDefault();
+
+                        
+                        str.WORKDATE = DateTime.Now;
+                        USERNO = item._USERNO;
+                        bx.SubmitChanges();
+                        //ts.Complete();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ArgumentException(
+                                    $"{ex.Message} ");
+                    }
+                }
+            //}
             return USERNO;
         }
 
