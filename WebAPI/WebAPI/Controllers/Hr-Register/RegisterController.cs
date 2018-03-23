@@ -23,6 +23,13 @@ namespace WebAPI.Controllers.Hr_Register
             return repository.Regis_Step_Two(id);
         }
 
+        //[HttpPost]
+        //[ActionName("Regis_Step_Three")]
+        //public IEnumerable<RetName> Regis_Step_Three([FromBody]insert_Step_Three id)
+        //{
+        //    return repository.Regis_Step_Three(id);
+        //}
+
         // ---------------------------------------------------------------------------------------------------------------------
 
         [HttpPost]

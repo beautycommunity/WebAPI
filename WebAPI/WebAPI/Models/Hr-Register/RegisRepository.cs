@@ -71,16 +71,16 @@ namespace WebAPI.Models.Hr_Register
             {
                 string USERNO;
                 int Status;
-                if (item.USERNO == null)
-                {
+                //if (item.USERNO == null)
+                //{
                     USERNO = InsertData_Two(item);
                     Status = 1;
-                }
-                else
-                {
-                    USERNO = InsertData_Two(item);
-                    Status = 2;
-                }
+                //}
+                //else
+                //{
+                //    USERNO = InsertData_Two(item);
+                //    Status = 2;
+                //}
 
                 RetName res = new RetName();
                 res.status = "S";
@@ -105,6 +105,45 @@ namespace WebAPI.Models.Hr_Register
 
             return results.ToArray();
         }
+
+        //[HttpPost]
+        //[ActionName("Regis_Step_Three")]
+        //public IEnumerable<RetName> Regis_Step_Three(insert_Step_Three item)
+        //{
+        //    //string strSQL = "SELECT POSITION,FULLNAME_TH FROM STEP_ONE";
+        //    List<RetName> results = new List<RetName>();
+
+        //    try
+        //    {
+        //        string USERNO;
+        //        int Status;
+        //        item.Detail.
+
+        //        USERNO = InsertData_Three(item);
+
+        //        RetName res = new RetName();
+        //        res.status = "S";
+        //        if (Status == 1)
+        //        {
+        //            res.message = "Insert success";
+        //        }
+        //        else if (Status == 2)
+        //        {
+        //            res.message = "Update success";
+        //        }
+        //        res.USERNO = USERNO;
+        //        results.Add(res);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        RetName res = new RetName();
+        //        res.status = "F";
+        //        res.message = ex.Message;
+        //        results.Add(res);
+        //    }
+
+        //    return results.ToArray();
+        //}
 
         [HttpPost]
         [ActionName("Regis_Step_Four")]
@@ -238,6 +277,11 @@ namespace WebAPI.Models.Hr_Register
             return results.ToArray();
         }
 
+        private string InsertData_Three(insert_Step_Three item)
+        {
+            throw new NotImplementedException();
+        }
+
         // ---------------------------------------------------------------------------------------------------------------------
 
         private string InsertData_One(insert_Step_One item)
@@ -277,7 +321,6 @@ namespace WebAPI.Models.Hr_Register
                         Step_One.ADDR_MOBILE = item._ADDR_MOBILE;
                         Step_One.ADDR_EMAIL = item._ADDR_EMAIL;
                         Step_One.ADDR_PHOTO = item._ADDR_PHOTO;
-                        //Step_One.WORKDATE = DateTime.Now;
                         Step_One.FLAG = 0;
 
                         bx.STEP_ONEs.InsertOnSubmit(Step_One);
@@ -296,7 +339,7 @@ namespace WebAPI.Models.Hr_Register
 
         private string InsertData_Two(insert_Step_Two item)
         {
-            string USERNO = item.USERNO;
+            string USERNO;
             using (TransactionScope ts = new TransactionScope())
             {
                 using (Hr_RegisterDataContext bx = new Hr_RegisterDataContext())
@@ -306,6 +349,7 @@ namespace WebAPI.Models.Hr_Register
                         var Step_Two = new STEP_TWO();
 
                         Step_Two.USERNO = item.USERNO;
+                        USERNO = item.USERNO;
                         Step_Two.MARITAL = item.MARITAL;
                         Step_Two.CHILDEN = item.CHILDEN;
                         Step_Two.SPOUSE_NAME = item.SPOUSE_NAME;

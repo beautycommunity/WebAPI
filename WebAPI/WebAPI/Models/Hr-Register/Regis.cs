@@ -70,10 +70,10 @@ namespace WebAPI.Models.Hr_Register
     public class insert_Step_Three
     {
         public Step_Three_DETAIL Detail;
-        public Step_Three_EDUCTION Eduction;
-        public Step_Three_EMPLOYMENT Employment;
-        public Step_Three_LANGUAGE Language;
-        public Step_Three_TRAINING Training;
+        public IEnumerable<Step_Three_EDUCTION> Eduction;
+        public IEnumerable<Step_Three_EMPLOYMENT> Employment;
+        public IEnumerable<Step_Three_LANGUAGE> Language;
+        public IEnumerable<Step_Three_TRAINING> Training;
     }
 
     [JsonObject(IsReference = true)]
