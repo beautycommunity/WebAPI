@@ -60,32 +60,32 @@ namespace WebAPI.Models.Hr_Register
             return results.ToArray();
         }
 
-        //[HttpPost]
-        //[ActionName("Regis_Step_Two")]
-        //public IEnumerable<RetName> Regis_Step_Two(insert_Step_Two item)
-        //{
-        //    //string strSQL = "SELECT POSITION,FULLNAME_TH FROM STEP_ONE";
-        //    List<RetName> results = new List<RetName>();
+        [HttpPost]
+        [ActionName("Regis_Step_Two")]
+        public IEnumerable<RetName> Regis_Step_Two(insert_Step_Two item)
+        {
+            //string strSQL = "SELECT POSITION,FULLNAME_TH FROM STEP_ONE";
+            List<RetName> results = new List<RetName>();
 
-        //    try
-        //    {
-        //        //InsertData(item);
+            try
+            {
+                //InsertData(item);
 
-        //        RetName res = new RetName();
-        //        res.status = "S";
-        //        res.message = "Insert success";
-        //        results.Add(res);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        RetName res = new RetName();
-        //        res.status = "F";
-        //        res.message = ex.Message;
-        //        results.Add(res);
-        //    }
+                RetName res = new RetName();
+                res.status = "S";
+                res.message = "Insert success";
+                results.Add(res);
+            }
+            catch (Exception ex)
+            {
+                RetName res = new RetName();
+                res.status = "F";
+                res.message = ex.Message;
+                results.Add(res);
+            }
 
-        //    return results.ToArray();
-        //}
+            return results.ToArray();
+        }
 
         // ---------------------------------------------------------------------------------------------------------------------
 
@@ -102,7 +102,7 @@ namespace WebAPI.Models.Hr_Register
                 using (Hr_RegisterDataContext bx = new Hr_RegisterDataContext())
                 {
                     var str = (from xx in bx.STEP_ONEs
-                               where xx.USERNO == "HR18030010"
+                               where xx.USERNO == item.USERNO
                                select xx).FirstOrDefault();
 
                     insert_Step_One res = new insert_Step_One();
@@ -171,7 +171,7 @@ namespace WebAPI.Models.Hr_Register
                         Step_One.PEOPLEID = item._PEOPLEID;
                         Step_One.ZONE = item._ZONE;
                         Step_One.PROVINCE_BIRTH = item._PROVINCE_BIRTH;
-                        Step_One.BIRTHDATE = item._BIRTHDATE.AddYears(543);
+                        Step_One.BIRTHDATE = item._BIRTHDATE;
                         Step_One.AGE = item._AGE;
                         Step_One.WEIGHT = item._WEIGHT;
                         Step_One.HEIGHT = item._HEIGHT;
