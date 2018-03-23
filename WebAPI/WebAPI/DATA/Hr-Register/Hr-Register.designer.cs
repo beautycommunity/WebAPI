@@ -33,6 +33,24 @@ namespace WebAPI.DATA.Hr_Register
     partial void InsertSTEP_ONE(STEP_ONE instance);
     partial void UpdateSTEP_ONE(STEP_ONE instance);
     partial void DeleteSTEP_ONE(STEP_ONE instance);
+    partial void InsertSTEP_TWO(STEP_TWO instance);
+    partial void UpdateSTEP_TWO(STEP_TWO instance);
+    partial void DeleteSTEP_TWO(STEP_TWO instance);
+    partial void InsertSTEP_THREE_DETAIL(STEP_THREE_DETAIL instance);
+    partial void UpdateSTEP_THREE_DETAIL(STEP_THREE_DETAIL instance);
+    partial void DeleteSTEP_THREE_DETAIL(STEP_THREE_DETAIL instance);
+    partial void InsertSTEP_THREE_EDUCTION(STEP_THREE_EDUCTION instance);
+    partial void UpdateSTEP_THREE_EDUCTION(STEP_THREE_EDUCTION instance);
+    partial void DeleteSTEP_THREE_EDUCTION(STEP_THREE_EDUCTION instance);
+    partial void InsertSTEP_THREE_EMPLOYMENT(STEP_THREE_EMPLOYMENT instance);
+    partial void UpdateSTEP_THREE_EMPLOYMENT(STEP_THREE_EMPLOYMENT instance);
+    partial void DeleteSTEP_THREE_EMPLOYMENT(STEP_THREE_EMPLOYMENT instance);
+    partial void InsertSTEP_THREE_LANGUAGE(STEP_THREE_LANGUAGE instance);
+    partial void UpdateSTEP_THREE_LANGUAGE(STEP_THREE_LANGUAGE instance);
+    partial void DeleteSTEP_THREE_LANGUAGE(STEP_THREE_LANGUAGE instance);
+    partial void InsertSTEP_THREE_TRAINING(STEP_THREE_TRAINING instance);
+    partial void UpdateSTEP_THREE_TRAINING(STEP_THREE_TRAINING instance);
+    partial void DeleteSTEP_THREE_TRAINING(STEP_THREE_TRAINING instance);
     #endregion
 		
 		public Hr_RegisterDataContext() : 
@@ -70,6 +88,54 @@ namespace WebAPI.DATA.Hr_Register
 			get
 			{
 				return this.GetTable<STEP_ONE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<STEP_TWO> STEP_TWOs
+		{
+			get
+			{
+				return this.GetTable<STEP_TWO>();
+			}
+		}
+		
+		public System.Data.Linq.Table<STEP_THREE_DETAIL> STEP_THREE_DETAILs
+		{
+			get
+			{
+				return this.GetTable<STEP_THREE_DETAIL>();
+			}
+		}
+		
+		public System.Data.Linq.Table<STEP_THREE_EDUCTION> STEP_THREE_EDUCTIONs
+		{
+			get
+			{
+				return this.GetTable<STEP_THREE_EDUCTION>();
+			}
+		}
+		
+		public System.Data.Linq.Table<STEP_THREE_EMPLOYMENT> STEP_THREE_EMPLOYMENTs
+		{
+			get
+			{
+				return this.GetTable<STEP_THREE_EMPLOYMENT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<STEP_THREE_LANGUAGE> STEP_THREE_LANGUAGEs
+		{
+			get
+			{
+				return this.GetTable<STEP_THREE_LANGUAGE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<STEP_THREE_TRAINING> STEP_THREE_TRAININGs
+		{
+			get
+			{
+				return this.GetTable<STEP_THREE_TRAINING>();
 			}
 		}
 	}
@@ -667,6 +733,1578 @@ namespace WebAPI.DATA.Hr_Register
 					this._WORKDATE = value;
 					this.SendPropertyChanged("WORKDATE");
 					this.OnWORKDATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FLAG", DbType="Int")]
+		public System.Nullable<int> FLAG
+		{
+			get
+			{
+				return this._FLAG;
+			}
+			set
+			{
+				if ((this._FLAG != value))
+				{
+					this.OnFLAGChanging(value);
+					this.SendPropertyChanging();
+					this._FLAG = value;
+					this.SendPropertyChanged("FLAG");
+					this.OnFLAGChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.STEP_TWO")]
+	public partial class STEP_TWO : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _USERNO;
+		
+		private string _MARITAL;
+		
+		private System.Nullable<int> _CHILDEN;
+		
+		private string _SPOUSE_NAME;
+		
+		private System.Nullable<int> _SPOUSE_AGE;
+		
+		private string _SPOUSE_OCCUPATION;
+		
+		private string _SPOUSE_OFFICE;
+		
+		private string _SPOUSE_PHONE;
+		
+		private string _EMERGENCY;
+		
+		private string _EMERGENCY_ROW1;
+		
+		private string _EMERGENCY_ROW2;
+		
+		private string _EMERGENCY_RELATIONSHIP;
+		
+		private string _EMERGENCY_PHONE;
+		
+		private System.Nullable<System.DateTime> _WORKDATE;
+		
+		private System.Nullable<int> _FLAG;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUSERNOChanging(string value);
+    partial void OnUSERNOChanged();
+    partial void OnMARITALChanging(string value);
+    partial void OnMARITALChanged();
+    partial void OnCHILDENChanging(System.Nullable<int> value);
+    partial void OnCHILDENChanged();
+    partial void OnSPOUSE_NAMEChanging(string value);
+    partial void OnSPOUSE_NAMEChanged();
+    partial void OnSPOUSE_AGEChanging(System.Nullable<int> value);
+    partial void OnSPOUSE_AGEChanged();
+    partial void OnSPOUSE_OCCUPATIONChanging(string value);
+    partial void OnSPOUSE_OCCUPATIONChanged();
+    partial void OnSPOUSE_OFFICEChanging(string value);
+    partial void OnSPOUSE_OFFICEChanged();
+    partial void OnSPOUSE_PHONEChanging(string value);
+    partial void OnSPOUSE_PHONEChanged();
+    partial void OnEMERGENCYChanging(string value);
+    partial void OnEMERGENCYChanged();
+    partial void OnEMERGENCY_ROW1Changing(string value);
+    partial void OnEMERGENCY_ROW1Changed();
+    partial void OnEMERGENCY_ROW2Changing(string value);
+    partial void OnEMERGENCY_ROW2Changed();
+    partial void OnEMERGENCY_RELATIONSHIPChanging(string value);
+    partial void OnEMERGENCY_RELATIONSHIPChanged();
+    partial void OnEMERGENCY_PHONEChanging(string value);
+    partial void OnEMERGENCY_PHONEChanged();
+    partial void OnWORKDATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnWORKDATEChanged();
+    partial void OnFLAGChanging(System.Nullable<int> value);
+    partial void OnFLAGChanged();
+    #endregion
+		
+		public STEP_TWO()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNO", DbType="VarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string USERNO
+		{
+			get
+			{
+				return this._USERNO;
+			}
+			set
+			{
+				if ((this._USERNO != value))
+				{
+					this.OnUSERNOChanging(value);
+					this.SendPropertyChanging();
+					this._USERNO = value;
+					this.SendPropertyChanged("USERNO");
+					this.OnUSERNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MARITAL", DbType="VarChar(20)")]
+		public string MARITAL
+		{
+			get
+			{
+				return this._MARITAL;
+			}
+			set
+			{
+				if ((this._MARITAL != value))
+				{
+					this.OnMARITALChanging(value);
+					this.SendPropertyChanging();
+					this._MARITAL = value;
+					this.SendPropertyChanged("MARITAL");
+					this.OnMARITALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHILDEN", DbType="Int")]
+		public System.Nullable<int> CHILDEN
+		{
+			get
+			{
+				return this._CHILDEN;
+			}
+			set
+			{
+				if ((this._CHILDEN != value))
+				{
+					this.OnCHILDENChanging(value);
+					this.SendPropertyChanging();
+					this._CHILDEN = value;
+					this.SendPropertyChanged("CHILDEN");
+					this.OnCHILDENChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPOUSE_NAME", DbType="VarChar(100)")]
+		public string SPOUSE_NAME
+		{
+			get
+			{
+				return this._SPOUSE_NAME;
+			}
+			set
+			{
+				if ((this._SPOUSE_NAME != value))
+				{
+					this.OnSPOUSE_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._SPOUSE_NAME = value;
+					this.SendPropertyChanged("SPOUSE_NAME");
+					this.OnSPOUSE_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPOUSE_AGE", DbType="Int")]
+		public System.Nullable<int> SPOUSE_AGE
+		{
+			get
+			{
+				return this._SPOUSE_AGE;
+			}
+			set
+			{
+				if ((this._SPOUSE_AGE != value))
+				{
+					this.OnSPOUSE_AGEChanging(value);
+					this.SendPropertyChanging();
+					this._SPOUSE_AGE = value;
+					this.SendPropertyChanged("SPOUSE_AGE");
+					this.OnSPOUSE_AGEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPOUSE_OCCUPATION", DbType="VarChar(75)")]
+		public string SPOUSE_OCCUPATION
+		{
+			get
+			{
+				return this._SPOUSE_OCCUPATION;
+			}
+			set
+			{
+				if ((this._SPOUSE_OCCUPATION != value))
+				{
+					this.OnSPOUSE_OCCUPATIONChanging(value);
+					this.SendPropertyChanging();
+					this._SPOUSE_OCCUPATION = value;
+					this.SendPropertyChanged("SPOUSE_OCCUPATION");
+					this.OnSPOUSE_OCCUPATIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPOUSE_OFFICE", DbType="VarChar(100)")]
+		public string SPOUSE_OFFICE
+		{
+			get
+			{
+				return this._SPOUSE_OFFICE;
+			}
+			set
+			{
+				if ((this._SPOUSE_OFFICE != value))
+				{
+					this.OnSPOUSE_OFFICEChanging(value);
+					this.SendPropertyChanging();
+					this._SPOUSE_OFFICE = value;
+					this.SendPropertyChanged("SPOUSE_OFFICE");
+					this.OnSPOUSE_OFFICEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPOUSE_PHONE", DbType="VarChar(15)")]
+		public string SPOUSE_PHONE
+		{
+			get
+			{
+				return this._SPOUSE_PHONE;
+			}
+			set
+			{
+				if ((this._SPOUSE_PHONE != value))
+				{
+					this.OnSPOUSE_PHONEChanging(value);
+					this.SendPropertyChanging();
+					this._SPOUSE_PHONE = value;
+					this.SendPropertyChanged("SPOUSE_PHONE");
+					this.OnSPOUSE_PHONEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMERGENCY", DbType="VarChar(100)")]
+		public string EMERGENCY
+		{
+			get
+			{
+				return this._EMERGENCY;
+			}
+			set
+			{
+				if ((this._EMERGENCY != value))
+				{
+					this.OnEMERGENCYChanging(value);
+					this.SendPropertyChanging();
+					this._EMERGENCY = value;
+					this.SendPropertyChanged("EMERGENCY");
+					this.OnEMERGENCYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMERGENCY_ROW1", DbType="VarChar(100)")]
+		public string EMERGENCY_ROW1
+		{
+			get
+			{
+				return this._EMERGENCY_ROW1;
+			}
+			set
+			{
+				if ((this._EMERGENCY_ROW1 != value))
+				{
+					this.OnEMERGENCY_ROW1Changing(value);
+					this.SendPropertyChanging();
+					this._EMERGENCY_ROW1 = value;
+					this.SendPropertyChanged("EMERGENCY_ROW1");
+					this.OnEMERGENCY_ROW1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMERGENCY_ROW2", DbType="VarChar(100)")]
+		public string EMERGENCY_ROW2
+		{
+			get
+			{
+				return this._EMERGENCY_ROW2;
+			}
+			set
+			{
+				if ((this._EMERGENCY_ROW2 != value))
+				{
+					this.OnEMERGENCY_ROW2Changing(value);
+					this.SendPropertyChanging();
+					this._EMERGENCY_ROW2 = value;
+					this.SendPropertyChanged("EMERGENCY_ROW2");
+					this.OnEMERGENCY_ROW2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMERGENCY_RELATIONSHIP", DbType="VarChar(20)")]
+		public string EMERGENCY_RELATIONSHIP
+		{
+			get
+			{
+				return this._EMERGENCY_RELATIONSHIP;
+			}
+			set
+			{
+				if ((this._EMERGENCY_RELATIONSHIP != value))
+				{
+					this.OnEMERGENCY_RELATIONSHIPChanging(value);
+					this.SendPropertyChanging();
+					this._EMERGENCY_RELATIONSHIP = value;
+					this.SendPropertyChanged("EMERGENCY_RELATIONSHIP");
+					this.OnEMERGENCY_RELATIONSHIPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMERGENCY_PHONE", DbType="VarChar(15)")]
+		public string EMERGENCY_PHONE
+		{
+			get
+			{
+				return this._EMERGENCY_PHONE;
+			}
+			set
+			{
+				if ((this._EMERGENCY_PHONE != value))
+				{
+					this.OnEMERGENCY_PHONEChanging(value);
+					this.SendPropertyChanging();
+					this._EMERGENCY_PHONE = value;
+					this.SendPropertyChanged("EMERGENCY_PHONE");
+					this.OnEMERGENCY_PHONEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WORKDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> WORKDATE
+		{
+			get
+			{
+				return this._WORKDATE;
+			}
+			set
+			{
+				if ((this._WORKDATE != value))
+				{
+					this.OnWORKDATEChanging(value);
+					this.SendPropertyChanging();
+					this._WORKDATE = value;
+					this.SendPropertyChanged("WORKDATE");
+					this.OnWORKDATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FLAG", DbType="Int")]
+		public System.Nullable<int> FLAG
+		{
+			get
+			{
+				return this._FLAG;
+			}
+			set
+			{
+				if ((this._FLAG != value))
+				{
+					this.OnFLAGChanging(value);
+					this.SendPropertyChanging();
+					this._FLAG = value;
+					this.SendPropertyChanged("FLAG");
+					this.OnFLAGChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.STEP_THREE_DETAIL")]
+	public partial class STEP_THREE_DETAIL : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _USERNO;
+		
+		private string _CURRENTLY_STUDY;
+		
+		private string _STUDY_NAME;
+		
+		private string _STUDY_MAJOR;
+		
+		private System.Nullable<System.DateTime> _STARTING_DATE;
+		
+		private string _HOBBY_ROW1;
+		
+		private string _HOBBY_ROW2;
+		
+		private string _HOBBY_ROW3;
+		
+		private string _HOBBY_ROW4;
+		
+		private System.Nullable<int> _FLAG;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUSERNOChanging(string value);
+    partial void OnUSERNOChanged();
+    partial void OnCURRENTLY_STUDYChanging(string value);
+    partial void OnCURRENTLY_STUDYChanged();
+    partial void OnSTUDY_NAMEChanging(string value);
+    partial void OnSTUDY_NAMEChanged();
+    partial void OnSTUDY_MAJORChanging(string value);
+    partial void OnSTUDY_MAJORChanged();
+    partial void OnSTARTING_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnSTARTING_DATEChanged();
+    partial void OnHOBBY_ROW1Changing(string value);
+    partial void OnHOBBY_ROW1Changed();
+    partial void OnHOBBY_ROW2Changing(string value);
+    partial void OnHOBBY_ROW2Changed();
+    partial void OnHOBBY_ROW3Changing(string value);
+    partial void OnHOBBY_ROW3Changed();
+    partial void OnHOBBY_ROW4Changing(string value);
+    partial void OnHOBBY_ROW4Changed();
+    partial void OnFLAGChanging(System.Nullable<int> value);
+    partial void OnFLAGChanged();
+    #endregion
+		
+		public STEP_THREE_DETAIL()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNO", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string USERNO
+		{
+			get
+			{
+				return this._USERNO;
+			}
+			set
+			{
+				if ((this._USERNO != value))
+				{
+					this.OnUSERNOChanging(value);
+					this.SendPropertyChanging();
+					this._USERNO = value;
+					this.SendPropertyChanged("USERNO");
+					this.OnUSERNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CURRENTLY_STUDY", DbType="VarChar(5)")]
+		public string CURRENTLY_STUDY
+		{
+			get
+			{
+				return this._CURRENTLY_STUDY;
+			}
+			set
+			{
+				if ((this._CURRENTLY_STUDY != value))
+				{
+					this.OnCURRENTLY_STUDYChanging(value);
+					this.SendPropertyChanging();
+					this._CURRENTLY_STUDY = value;
+					this.SendPropertyChanged("CURRENTLY_STUDY");
+					this.OnCURRENTLY_STUDYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STUDY_NAME", DbType="VarChar(50)")]
+		public string STUDY_NAME
+		{
+			get
+			{
+				return this._STUDY_NAME;
+			}
+			set
+			{
+				if ((this._STUDY_NAME != value))
+				{
+					this.OnSTUDY_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._STUDY_NAME = value;
+					this.SendPropertyChanged("STUDY_NAME");
+					this.OnSTUDY_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STUDY_MAJOR", DbType="VarChar(50)")]
+		public string STUDY_MAJOR
+		{
+			get
+			{
+				return this._STUDY_MAJOR;
+			}
+			set
+			{
+				if ((this._STUDY_MAJOR != value))
+				{
+					this.OnSTUDY_MAJORChanging(value);
+					this.SendPropertyChanging();
+					this._STUDY_MAJOR = value;
+					this.SendPropertyChanged("STUDY_MAJOR");
+					this.OnSTUDY_MAJORChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STARTING_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> STARTING_DATE
+		{
+			get
+			{
+				return this._STARTING_DATE;
+			}
+			set
+			{
+				if ((this._STARTING_DATE != value))
+				{
+					this.OnSTARTING_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._STARTING_DATE = value;
+					this.SendPropertyChanged("STARTING_DATE");
+					this.OnSTARTING_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOBBY_ROW1", DbType="VarChar(20)")]
+		public string HOBBY_ROW1
+		{
+			get
+			{
+				return this._HOBBY_ROW1;
+			}
+			set
+			{
+				if ((this._HOBBY_ROW1 != value))
+				{
+					this.OnHOBBY_ROW1Changing(value);
+					this.SendPropertyChanging();
+					this._HOBBY_ROW1 = value;
+					this.SendPropertyChanged("HOBBY_ROW1");
+					this.OnHOBBY_ROW1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOBBY_ROW2", DbType="VarChar(20)")]
+		public string HOBBY_ROW2
+		{
+			get
+			{
+				return this._HOBBY_ROW2;
+			}
+			set
+			{
+				if ((this._HOBBY_ROW2 != value))
+				{
+					this.OnHOBBY_ROW2Changing(value);
+					this.SendPropertyChanging();
+					this._HOBBY_ROW2 = value;
+					this.SendPropertyChanged("HOBBY_ROW2");
+					this.OnHOBBY_ROW2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOBBY_ROW3", DbType="VarChar(20)")]
+		public string HOBBY_ROW3
+		{
+			get
+			{
+				return this._HOBBY_ROW3;
+			}
+			set
+			{
+				if ((this._HOBBY_ROW3 != value))
+				{
+					this.OnHOBBY_ROW3Changing(value);
+					this.SendPropertyChanging();
+					this._HOBBY_ROW3 = value;
+					this.SendPropertyChanged("HOBBY_ROW3");
+					this.OnHOBBY_ROW3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOBBY_ROW4", DbType="VarChar(20)")]
+		public string HOBBY_ROW4
+		{
+			get
+			{
+				return this._HOBBY_ROW4;
+			}
+			set
+			{
+				if ((this._HOBBY_ROW4 != value))
+				{
+					this.OnHOBBY_ROW4Changing(value);
+					this.SendPropertyChanging();
+					this._HOBBY_ROW4 = value;
+					this.SendPropertyChanged("HOBBY_ROW4");
+					this.OnHOBBY_ROW4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FLAG", DbType="Int")]
+		public System.Nullable<int> FLAG
+		{
+			get
+			{
+				return this._FLAG;
+			}
+			set
+			{
+				if ((this._FLAG != value))
+				{
+					this.OnFLAGChanging(value);
+					this.SendPropertyChanging();
+					this._FLAG = value;
+					this.SendPropertyChanged("FLAG");
+					this.OnFLAGChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.STEP_THREE_EDUCTION")]
+	public partial class STEP_THREE_EDUCTION : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _USERNO;
+		
+		private string _EDUCATION_LV;
+		
+		private string _EDUCATION_NAME;
+		
+		private string _DEGREE;
+		
+		private string _S_YEAR;
+		
+		private string _E_YEAR;
+		
+		private System.Nullable<decimal> _GPA;
+		
+		private string _MAJOR;
+		
+		private System.Nullable<int> _FLAG;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUSERNOChanging(string value);
+    partial void OnUSERNOChanged();
+    partial void OnEDUCATION_LVChanging(string value);
+    partial void OnEDUCATION_LVChanged();
+    partial void OnEDUCATION_NAMEChanging(string value);
+    partial void OnEDUCATION_NAMEChanged();
+    partial void OnDEGREEChanging(string value);
+    partial void OnDEGREEChanged();
+    partial void OnS_YEARChanging(string value);
+    partial void OnS_YEARChanged();
+    partial void OnE_YEARChanging(string value);
+    partial void OnE_YEARChanged();
+    partial void OnGPAChanging(System.Nullable<decimal> value);
+    partial void OnGPAChanged();
+    partial void OnMAJORChanging(string value);
+    partial void OnMAJORChanged();
+    partial void OnFLAGChanging(System.Nullable<int> value);
+    partial void OnFLAGChanged();
+    #endregion
+		
+		public STEP_THREE_EDUCTION()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNO", DbType="VarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string USERNO
+		{
+			get
+			{
+				return this._USERNO;
+			}
+			set
+			{
+				if ((this._USERNO != value))
+				{
+					this.OnUSERNOChanging(value);
+					this.SendPropertyChanging();
+					this._USERNO = value;
+					this.SendPropertyChanged("USERNO");
+					this.OnUSERNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EDUCATION_LV", DbType="VarChar(50)")]
+		public string EDUCATION_LV
+		{
+			get
+			{
+				return this._EDUCATION_LV;
+			}
+			set
+			{
+				if ((this._EDUCATION_LV != value))
+				{
+					this.OnEDUCATION_LVChanging(value);
+					this.SendPropertyChanging();
+					this._EDUCATION_LV = value;
+					this.SendPropertyChanged("EDUCATION_LV");
+					this.OnEDUCATION_LVChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EDUCATION_NAME", DbType="VarChar(100)")]
+		public string EDUCATION_NAME
+		{
+			get
+			{
+				return this._EDUCATION_NAME;
+			}
+			set
+			{
+				if ((this._EDUCATION_NAME != value))
+				{
+					this.OnEDUCATION_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._EDUCATION_NAME = value;
+					this.SendPropertyChanged("EDUCATION_NAME");
+					this.OnEDUCATION_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEGREE", DbType="VarChar(50)")]
+		public string DEGREE
+		{
+			get
+			{
+				return this._DEGREE;
+			}
+			set
+			{
+				if ((this._DEGREE != value))
+				{
+					this.OnDEGREEChanging(value);
+					this.SendPropertyChanging();
+					this._DEGREE = value;
+					this.SendPropertyChanged("DEGREE");
+					this.OnDEGREEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_S_YEAR", DbType="VarChar(5)")]
+		public string S_YEAR
+		{
+			get
+			{
+				return this._S_YEAR;
+			}
+			set
+			{
+				if ((this._S_YEAR != value))
+				{
+					this.OnS_YEARChanging(value);
+					this.SendPropertyChanging();
+					this._S_YEAR = value;
+					this.SendPropertyChanged("S_YEAR");
+					this.OnS_YEARChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E_YEAR", DbType="VarChar(5)")]
+		public string E_YEAR
+		{
+			get
+			{
+				return this._E_YEAR;
+			}
+			set
+			{
+				if ((this._E_YEAR != value))
+				{
+					this.OnE_YEARChanging(value);
+					this.SendPropertyChanging();
+					this._E_YEAR = value;
+					this.SendPropertyChanged("E_YEAR");
+					this.OnE_YEARChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GPA", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> GPA
+		{
+			get
+			{
+				return this._GPA;
+			}
+			set
+			{
+				if ((this._GPA != value))
+				{
+					this.OnGPAChanging(value);
+					this.SendPropertyChanging();
+					this._GPA = value;
+					this.SendPropertyChanged("GPA");
+					this.OnGPAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAJOR", DbType="VarChar(50)")]
+		public string MAJOR
+		{
+			get
+			{
+				return this._MAJOR;
+			}
+			set
+			{
+				if ((this._MAJOR != value))
+				{
+					this.OnMAJORChanging(value);
+					this.SendPropertyChanging();
+					this._MAJOR = value;
+					this.SendPropertyChanged("MAJOR");
+					this.OnMAJORChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FLAG", DbType="Int")]
+		public System.Nullable<int> FLAG
+		{
+			get
+			{
+				return this._FLAG;
+			}
+			set
+			{
+				if ((this._FLAG != value))
+				{
+					this.OnFLAGChanging(value);
+					this.SendPropertyChanging();
+					this._FLAG = value;
+					this.SendPropertyChanged("FLAG");
+					this.OnFLAGChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.STEP_THREE_EMPLOYMENT")]
+	public partial class STEP_THREE_EMPLOYMENT : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _USERNO;
+		
+		private string _COMPANY_NAME;
+		
+		private System.Nullable<System.DateTime> _S_DATE;
+		
+		private System.Nullable<System.DateTime> _E_DATE;
+		
+		private string _POSITION;
+		
+		private System.Nullable<int> _SALARY;
+		
+		private string _DETAIL;
+		
+		private string _LEAVING;
+		
+		private System.Nullable<int> _FLAG;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUSERNOChanging(string value);
+    partial void OnUSERNOChanged();
+    partial void OnCOMPANY_NAMEChanging(string value);
+    partial void OnCOMPANY_NAMEChanged();
+    partial void OnS_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnS_DATEChanged();
+    partial void OnE_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnE_DATEChanged();
+    partial void OnPOSITIONChanging(string value);
+    partial void OnPOSITIONChanged();
+    partial void OnSALARYChanging(System.Nullable<int> value);
+    partial void OnSALARYChanged();
+    partial void OnDETAILChanging(string value);
+    partial void OnDETAILChanged();
+    partial void OnLEAVINGChanging(string value);
+    partial void OnLEAVINGChanged();
+    partial void OnFLAGChanging(System.Nullable<int> value);
+    partial void OnFLAGChanged();
+    #endregion
+		
+		public STEP_THREE_EMPLOYMENT()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNO", DbType="VarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string USERNO
+		{
+			get
+			{
+				return this._USERNO;
+			}
+			set
+			{
+				if ((this._USERNO != value))
+				{
+					this.OnUSERNOChanging(value);
+					this.SendPropertyChanging();
+					this._USERNO = value;
+					this.SendPropertyChanged("USERNO");
+					this.OnUSERNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPANY_NAME", DbType="VarChar(50)")]
+		public string COMPANY_NAME
+		{
+			get
+			{
+				return this._COMPANY_NAME;
+			}
+			set
+			{
+				if ((this._COMPANY_NAME != value))
+				{
+					this.OnCOMPANY_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._COMPANY_NAME = value;
+					this.SendPropertyChanged("COMPANY_NAME");
+					this.OnCOMPANY_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_S_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> S_DATE
+		{
+			get
+			{
+				return this._S_DATE;
+			}
+			set
+			{
+				if ((this._S_DATE != value))
+				{
+					this.OnS_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._S_DATE = value;
+					this.SendPropertyChanged("S_DATE");
+					this.OnS_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> E_DATE
+		{
+			get
+			{
+				return this._E_DATE;
+			}
+			set
+			{
+				if ((this._E_DATE != value))
+				{
+					this.OnE_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._E_DATE = value;
+					this.SendPropertyChanged("E_DATE");
+					this.OnE_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POSITION", DbType="VarChar(50)")]
+		public string POSITION
+		{
+			get
+			{
+				return this._POSITION;
+			}
+			set
+			{
+				if ((this._POSITION != value))
+				{
+					this.OnPOSITIONChanging(value);
+					this.SendPropertyChanging();
+					this._POSITION = value;
+					this.SendPropertyChanged("POSITION");
+					this.OnPOSITIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SALARY", DbType="Int")]
+		public System.Nullable<int> SALARY
+		{
+			get
+			{
+				return this._SALARY;
+			}
+			set
+			{
+				if ((this._SALARY != value))
+				{
+					this.OnSALARYChanging(value);
+					this.SendPropertyChanging();
+					this._SALARY = value;
+					this.SendPropertyChanged("SALARY");
+					this.OnSALARYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DETAIL", DbType="VarChar(50)")]
+		public string DETAIL
+		{
+			get
+			{
+				return this._DETAIL;
+			}
+			set
+			{
+				if ((this._DETAIL != value))
+				{
+					this.OnDETAILChanging(value);
+					this.SendPropertyChanging();
+					this._DETAIL = value;
+					this.SendPropertyChanged("DETAIL");
+					this.OnDETAILChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LEAVING", DbType="VarChar(50)")]
+		public string LEAVING
+		{
+			get
+			{
+				return this._LEAVING;
+			}
+			set
+			{
+				if ((this._LEAVING != value))
+				{
+					this.OnLEAVINGChanging(value);
+					this.SendPropertyChanging();
+					this._LEAVING = value;
+					this.SendPropertyChanged("LEAVING");
+					this.OnLEAVINGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FLAG", DbType="Int")]
+		public System.Nullable<int> FLAG
+		{
+			get
+			{
+				return this._FLAG;
+			}
+			set
+			{
+				if ((this._FLAG != value))
+				{
+					this.OnFLAGChanging(value);
+					this.SendPropertyChanging();
+					this._FLAG = value;
+					this.SendPropertyChanged("FLAG");
+					this.OnFLAGChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.STEP_THREE_LANGUAGE")]
+	public partial class STEP_THREE_LANGUAGE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _USERNO;
+		
+		private string _LANGUAGE;
+		
+		private string _SPEAKING;
+		
+		private string _READING;
+		
+		private string _WRITING;
+		
+		private System.Nullable<int> _FLAG;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUSERNOChanging(string value);
+    partial void OnUSERNOChanged();
+    partial void OnLANGUAGEChanging(string value);
+    partial void OnLANGUAGEChanged();
+    partial void OnSPEAKINGChanging(string value);
+    partial void OnSPEAKINGChanged();
+    partial void OnREADINGChanging(string value);
+    partial void OnREADINGChanged();
+    partial void OnWRITINGChanging(string value);
+    partial void OnWRITINGChanged();
+    partial void OnFLAGChanging(System.Nullable<int> value);
+    partial void OnFLAGChanged();
+    #endregion
+		
+		public STEP_THREE_LANGUAGE()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNO", DbType="VarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string USERNO
+		{
+			get
+			{
+				return this._USERNO;
+			}
+			set
+			{
+				if ((this._USERNO != value))
+				{
+					this.OnUSERNOChanging(value);
+					this.SendPropertyChanging();
+					this._USERNO = value;
+					this.SendPropertyChanged("USERNO");
+					this.OnUSERNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LANGUAGE", DbType="VarChar(20)")]
+		public string LANGUAGE
+		{
+			get
+			{
+				return this._LANGUAGE;
+			}
+			set
+			{
+				if ((this._LANGUAGE != value))
+				{
+					this.OnLANGUAGEChanging(value);
+					this.SendPropertyChanging();
+					this._LANGUAGE = value;
+					this.SendPropertyChanged("LANGUAGE");
+					this.OnLANGUAGEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKING", DbType="VarChar(10)")]
+		public string SPEAKING
+		{
+			get
+			{
+				return this._SPEAKING;
+			}
+			set
+			{
+				if ((this._SPEAKING != value))
+				{
+					this.OnSPEAKINGChanging(value);
+					this.SendPropertyChanging();
+					this._SPEAKING = value;
+					this.SendPropertyChanged("SPEAKING");
+					this.OnSPEAKINGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_READING", DbType="VarChar(10)")]
+		public string READING
+		{
+			get
+			{
+				return this._READING;
+			}
+			set
+			{
+				if ((this._READING != value))
+				{
+					this.OnREADINGChanging(value);
+					this.SendPropertyChanging();
+					this._READING = value;
+					this.SendPropertyChanged("READING");
+					this.OnREADINGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WRITING", DbType="VarChar(10)")]
+		public string WRITING
+		{
+			get
+			{
+				return this._WRITING;
+			}
+			set
+			{
+				if ((this._WRITING != value))
+				{
+					this.OnWRITINGChanging(value);
+					this.SendPropertyChanging();
+					this._WRITING = value;
+					this.SendPropertyChanged("WRITING");
+					this.OnWRITINGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FLAG", DbType="Int")]
+		public System.Nullable<int> FLAG
+		{
+			get
+			{
+				return this._FLAG;
+			}
+			set
+			{
+				if ((this._FLAG != value))
+				{
+					this.OnFLAGChanging(value);
+					this.SendPropertyChanging();
+					this._FLAG = value;
+					this.SendPropertyChanged("FLAG");
+					this.OnFLAGChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.STEP_THREE_TRAINING")]
+	public partial class STEP_THREE_TRAINING : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _USERNO;
+		
+		private System.Nullable<System.DateTime> _DATE;
+		
+		private string _COURSE;
+		
+		private string _INSTITUTION;
+		
+		private System.Nullable<System.DateTime> _S_DATE;
+		
+		private System.Nullable<System.DateTime> _E_DATE;
+		
+		private System.Nullable<int> _FLAG;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUSERNOChanging(string value);
+    partial void OnUSERNOChanged();
+    partial void OnDATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnDATEChanged();
+    partial void OnCOURSEChanging(string value);
+    partial void OnCOURSEChanged();
+    partial void OnINSTITUTIONChanging(string value);
+    partial void OnINSTITUTIONChanged();
+    partial void OnS_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnS_DATEChanged();
+    partial void OnE_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnE_DATEChanged();
+    partial void OnFLAGChanging(System.Nullable<int> value);
+    partial void OnFLAGChanged();
+    #endregion
+		
+		public STEP_THREE_TRAINING()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNO", DbType="VarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string USERNO
+		{
+			get
+			{
+				return this._USERNO;
+			}
+			set
+			{
+				if ((this._USERNO != value))
+				{
+					this.OnUSERNOChanging(value);
+					this.SendPropertyChanging();
+					this._USERNO = value;
+					this.SendPropertyChanged("USERNO");
+					this.OnUSERNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> DATE
+		{
+			get
+			{
+				return this._DATE;
+			}
+			set
+			{
+				if ((this._DATE != value))
+				{
+					this.OnDATEChanging(value);
+					this.SendPropertyChanging();
+					this._DATE = value;
+					this.SendPropertyChanged("DATE");
+					this.OnDATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COURSE", DbType="VarChar(100)")]
+		public string COURSE
+		{
+			get
+			{
+				return this._COURSE;
+			}
+			set
+			{
+				if ((this._COURSE != value))
+				{
+					this.OnCOURSEChanging(value);
+					this.SendPropertyChanging();
+					this._COURSE = value;
+					this.SendPropertyChanged("COURSE");
+					this.OnCOURSEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSTITUTION", DbType="VarChar(100)")]
+		public string INSTITUTION
+		{
+			get
+			{
+				return this._INSTITUTION;
+			}
+			set
+			{
+				if ((this._INSTITUTION != value))
+				{
+					this.OnINSTITUTIONChanging(value);
+					this.SendPropertyChanging();
+					this._INSTITUTION = value;
+					this.SendPropertyChanged("INSTITUTION");
+					this.OnINSTITUTIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_S_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> S_DATE
+		{
+			get
+			{
+				return this._S_DATE;
+			}
+			set
+			{
+				if ((this._S_DATE != value))
+				{
+					this.OnS_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._S_DATE = value;
+					this.SendPropertyChanged("S_DATE");
+					this.OnS_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> E_DATE
+		{
+			get
+			{
+				return this._E_DATE;
+			}
+			set
+			{
+				if ((this._E_DATE != value))
+				{
+					this.OnE_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._E_DATE = value;
+					this.SendPropertyChanged("E_DATE");
+					this.OnE_DATEChanged();
 				}
 			}
 		}

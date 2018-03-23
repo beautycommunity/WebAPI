@@ -1,11 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Hr-Register">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.125, 8.5" name="Hr-Register">
   <DataContextMoniker Name="/Hr_RegisterDataContext" />
   <nestedChildShapes>
     <classShape Id="34e3d905-945e-49f2-81de-f0cf1d5a711a" absoluteBounds="0.5, 0.5, 2, 5.6169254557291657">
       <DataClassMoniker Name="/Hr_RegisterDataContext/STEP_ONE" />
       <nestedChildShapes>
         <elementListCompartment Id="460c34bb-10fb-427e-8033-9ac485e78f61" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 5.0569254557291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9b015215-be50-4ab9-adb0-ca3f84d55a70" absoluteBounds="2.75, 0.5, 2, 3.6939111328124996">
+      <DataClassMoniker Name="/Hr_RegisterDataContext/STEP_TWO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5b3c30d0-cf2d-4a82-b24f-f26d2599cb2f" absoluteBounds="2.765, 0.96, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eb1f0efa-f825-41f8-b680-ed6ea2e23aa3" absoluteBounds="5.25, 0.5, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/Hr_RegisterDataContext/STEP_THREE_DETAIL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bf62c570-8b84-41ff-ba9b-c1dd795e5912" absoluteBounds="5.265, 0.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="df886d74-8174-4a0c-a928-a8658c7960ed" absoluteBounds="7.5, 0.5, 2, 2.5401025390625">
+      <DataClassMoniker Name="/Hr_RegisterDataContext/STEP_THREE_EDUCTION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ec0fdd70-3b90-44d8-b265-3b67d3c0a16e" absoluteBounds="7.5150000000000006, 0.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5fa3a5e8-72aa-4a07-8105-029f62ebdca6" absoluteBounds="7.5, 3.375, 2, 2.5401025390625">
+      <DataClassMoniker Name="/Hr_RegisterDataContext/STEP_THREE_EMPLOYMENT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6d13bc6b-a80c-4e38-99c8-fd2b438eb5b8" absoluteBounds="7.515, 3.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6f03fd0e-d0cf-4fd7-8fce-a6de8ea97d81" absoluteBounds="9.875, 0.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/Hr_RegisterDataContext/STEP_THREE_LANGUAGE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8030e807-9bfe-4ef5-bdb8-52b7293bf8a0" absoluteBounds="9.89, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f8d22cb3-546a-44f9-9351-5d02b1c05384" absoluteBounds="5.25, 3.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/Hr_RegisterDataContext/STEP_THREE_TRAINING" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6a1a9284-a89d-40ed-9c05-992afc84b6ab" absoluteBounds="5.265, 3.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
