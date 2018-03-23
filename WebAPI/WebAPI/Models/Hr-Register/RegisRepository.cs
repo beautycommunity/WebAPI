@@ -69,11 +69,30 @@ namespace WebAPI.Models.Hr_Register
 
             try
             {
-                //InsertData(item);
+                string USERNO;
+                int Status;
+                if (item.USERNO == null)
+                {
+                    USERNO = InsertData_Two(item);
+                    Status = 1;
+                }
+                else
+                {
+                    USERNO = InsertData_Two(item);
+                    Status = 2;
+                }
 
                 RetName res = new RetName();
                 res.status = "S";
-                res.message = "Insert success";
+                if (Status == 1)
+                {
+                    res.message = "Insert success";
+                }
+                else if (Status == 2)
+                {
+                    res.message = "Update success";
+                }
+                res.USERNO = USERNO;
                 results.Add(res);
             }
             catch (Exception ex)
