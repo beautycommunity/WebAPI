@@ -64,36 +64,42 @@ namespace WebAPI.Models.Hr_Register
         [ActionName("Regis_Step_Two")]
         public IEnumerable<RetName> Regis_Step_Two(insert_Step_Two item)
         {
-            //string strSQL = "SELECT POSITION,FULLNAME_TH FROM STEP_ONE";
             List<RetName> results = new List<RetName>();
 
             try
             {
-                string USERNO;
-                int Status;
-                //if (item.USERNO == null)
-                //{
-                    USERNO = InsertData_Two(item);
-                    Status = 1;
-                //}
-                //else
-                //{
-                //    USERNO = InsertData_Two(item);
-                //    Status = 2;
-                //}
+                using (Hr_RegisterDataContext bx = new Hr_RegisterDataContext())
+                {
+                    var str = (from xx in bx.STEP_TWOs
+                               where xx.USERNO == item.USERNO
+                               select xx).FirstOrDefault();
 
-                RetName res = new RetName();
-                res.status = "S";
-                if (Status == 1)
-                {
-                    res.message = "Insert success";
+                    string USERNO;
+                    int Status;
+                    if (str.USERNO == null)
+                    {
+                        USERNO = InsertData_Two(item);
+                        Status = 1;
+                    }
+                    else
+                    {
+                        USERNO = UpdateData_Two(item);
+                        Status = 2;
+                    }
+
+                    RetName res = new RetName();
+                    res.status = "S";
+                    if (Status == 1)
+                    {
+                        res.message = "Insert success";
+                    }
+                    else if (Status == 2)
+                    {
+                        res.message = "Update success";
+                    }
+                    res.USERNO = USERNO;
+                    results.Add(res);
                 }
-                else if (Status == 2)
-                {
-                    res.message = "Update success";
-                }
-                res.USERNO = USERNO;
-                results.Add(res);
             }
             catch (Exception ex)
             {
@@ -425,6 +431,44 @@ namespace WebAPI.Models.Hr_Register
                                     $"{ex.Message} ");
                     }
                 }
+            //}
+            return USERNO;
+        }
+
+        private string UpdateData_Two(insert_Step_Two item)
+        {
+            string USERNO;
+            using (Hr_RegisterDataContext bx = new Hr_RegisterDataContext())
+            {
+                try
+                {
+                    var str = (from xx in bx.STEP_TWOs
+                               where xx.USERNO == item.USERNO
+                               select xx).FirstOrDefault();
+
+                    USERNO = item.USERNO;
+                    str.MARITAL = item.MARITAL;
+                    str.CHILDEN = item.CHILDEN;
+                    str.SPOUSE_NAME = item.SPOUSE_NAME;
+                    str.SPOUSE_AGE = item.SPOUSE_AGE;
+                    str.SPOUSE_OCCUPATION = item.SPOUSE_OCCUPATION;
+                    str.SPOUSE_OFFICE = item.SPOUSE_OFFICE;
+                    str.SPOUSE_PHONE = item.SPOUSE_PHONE;
+                    str.EMERGENCY = item.EMERGENCY;
+                    str.EMERGENCY_ROW1 = item.EMERGENCY_ROW1;
+                    str.EMERGENCY_ROW2 = item.EMERGENCY_ROW2;
+                    str.EMERGENCY_RELATIONSHIP = item.EMERGENCY_RELATIONSHIP;
+                    str.EMERGENCY_PHONE = item.EMERGENCY_PHONE;
+
+                    bx.SubmitChanges();
+                    //ts.Complete();
+                }
+                catch (Exception ex)
+                {
+                    throw new ArgumentException(
+                                $"{ex.Message} ");
+                }
+            }
             //}
             return USERNO;
         }
