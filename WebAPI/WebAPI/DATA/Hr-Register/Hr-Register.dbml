@@ -60,19 +60,6 @@
       <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.STEP_THREE_EDUCTION" Member="STEP_THREE_EDUCTIONs">
-    <Type Name="STEP_THREE_EDUCTION">
-      <Column Name="USERNO" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="EDUCATION_LV" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="EDUCATION_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="DEGREE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="S_YEAR" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-      <Column Name="E_YEAR" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-      <Column Name="GPA" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="MAJOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.STEP_THREE_EMPLOYMENT" Member="STEP_THREE_EMPLOYMENTs">
     <Type Name="STEP_THREE_EMPLOYMENT">
       <Column Name="USERNO" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
@@ -115,6 +102,19 @@
       <Column Name="DETAIL_ROW1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="DETAIL_ROW2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="DETAIL_ROW3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STEP_THREE_EDUCTION" Member="STEP_THREE_EDUCTIONs">
+    <Type Name="STEP_THREE_EDUCTION">
+      <Column Name="USERNO" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="EDUCATION_LV" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EDUCATION_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DEGREE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="S_YEAR" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="E_YEAR" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="GPA" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="MAJOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
