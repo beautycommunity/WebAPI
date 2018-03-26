@@ -23,12 +23,26 @@ namespace WebAPI.Controllers.Hr_Register
             return repository.Regis_Step_Two(id);
         }
 
-        //[HttpPost]
-        //[ActionName("Regis_Step_Three")]
-        //public IEnumerable<RetName> Regis_Step_Three([FromBody]insert_Step_Three id)
-        //{
-        //    return repository.Regis_Step_Three(id);
-        //}
+        [HttpPost]
+        [ActionName("Regis_Step_Three")]
+        public IEnumerable<RetName> Regis_Step_Three([FromBody]insert_Step_Three id)
+        {
+            return repository.Regis_Step_Three(id);
+        }
+
+        [HttpPost]
+        [ActionName("Regis_Step_Four")]
+        public IEnumerable<RetName> Regis_Step_Four([FromBody]insert_Step_Four id)
+        {
+            return repository.Regis_Step_Four(id);
+        }
+
+        [HttpPost]
+        [ActionName("Summary")]
+        public IEnumerable<ViewSummary> Summary([FromBody]RetName id)
+        {
+            return repository.Summary(id);
+        }
 
         // ---------------------------------------------------------------------------------------------------------------------
 
