@@ -12,6 +12,7 @@ using System.Web.Http.Results;
 using WebAPI.DATA.Hr_Register;
 using System.Transactions;
 
+
 namespace WebAPI.Models.Hr_Register
 {
     public class RegisRepository : IRegisRepository
