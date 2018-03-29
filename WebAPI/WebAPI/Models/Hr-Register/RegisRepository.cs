@@ -34,6 +34,7 @@ namespace WebAPI.Models.Hr_Register
                 else
                 {
                     USERNO = UpdateData_One(item);
+                    USERNO = InsertData_One(item);
                     Status = 2;
                 }
                 
@@ -76,7 +77,7 @@ namespace WebAPI.Models.Hr_Register
 
                     string USERNO;
                     int Status;
-                    if (str.USERNO == null)
+                    if (str == null)
                     {
                         USERNO = InsertData_Two(item);
                         Status = 1;
@@ -84,6 +85,7 @@ namespace WebAPI.Models.Hr_Register
                     else
                     {
                         USERNO = UpdateData_Two(item);
+                        USERNO = InsertData_Two(item);
                         Status = 2;
                     }
 
@@ -122,17 +124,33 @@ namespace WebAPI.Models.Hr_Register
             {
                 using (Hr_RegisterDataContext bx = new Hr_RegisterDataContext())
                 {
-                    //var str = (from xx in bx.STEP_THREE_DETAILs
-                    //           where xx.USERNO == item.USERNO
-                    //           select xx).FirstOrDefault();
+                    var str = (from xx in bx.STEP_THREE_DETAILs
+                               where xx.USERNO == item.USERNO
+                               select xx).FirstOrDefault();
 
-                    //string USERNO;
-                    //int Status;
-                    InsertData_Three(item);
+                    int Status;
+                    if (str == null)
+                    {
+                        InsertData_Three(item);
+                        Status = 1;
+                    }
+                    else
+                    {
+                        UpdateData_Three(item);
+                        InsertData_Three(item);
+                        Status = 2;
+                    }
 
                     RetName res = new RetName();
                     res.status = "S";
-                    res.message = "Insert success";
+                    if (Status == 1)
+                    {
+                        res.message = "Insert success";
+                    }
+                    else if (Status == 2)
+                    {
+                        res.message = "Update success";
+                    }
                     res.USERNO = item.USERNO;
                     results.Add(res);
                 }
@@ -158,29 +176,87 @@ namespace WebAPI.Models.Hr_Register
             {
                 using (Hr_RegisterDataContext bx = new Hr_RegisterDataContext())
                 {
-                    var str = (from xx in bx.STEP_TWOs
+                    var str = (from xx in bx.STEP_FOURs
                                where xx.USERNO == item.USERNO
                                select xx).FirstOrDefault();
 
-                    string USERNO;
                     int Status;
-
-                    USERNO = InsertData_Four(item);
-                    Status = 1;
+                    if (str == null)
+                    {
+                        InsertData_Four(item);
+                        Status = 1;
+                    }
+                    else
+                    {
+                        UpdateData_Four(item);
+                        InsertData_Four(item);
+                        Status = 2;
+                    }
 
                     RetName res = new RetName();
                     res.status = "S";
-                    //if (Status == 1)
-                    //{
+                    if (Status == 1)
+                    {
                         res.message = "Insert success";
-                    //}
-                    //else if (Status == 2)
-                    //{
-                    //    res.message = "Update success";
-                    //}
-                    res.USERNO = USERNO;
+                    }
+                    else if (Status == 2)
+                    {
+                        res.message = "Update success";
+                    }
+                    res.USERNO = item.USERNO;
                     results.Add(res);
                 }
+            }
+            catch (Exception ex)
+            {
+                RetName res = new RetName();
+                res.status = "F";
+                res.message = ex.Message;
+                results.Add(res);
+            }
+
+            return results.ToArray();
+        }
+
+        [HttpPost]
+        [ActionName("Update_Summary")]
+        public IEnumerable<RetName> Update_Summary(ViewSummary item)
+        {
+            List<RetName> results = new List<RetName>();
+
+            try
+            {
+                string USERNO;
+                //int Status;
+                //if (item._USERNO == null)
+                //{
+                InsertData_One(item.Step_One);
+                InsertData_Two(item.Step_Two);
+                //InsertData_Three(item.Step_Three);
+                //InsertData_Four(item.Step_Four);
+                //InsertData_One(item.Step_One);
+                //InsertData_One(item.Step_One);
+                //InsertData_One(item.Step_One);
+                //    Status = 1;
+                //}
+                //else
+                //{
+                //    USERNO = UpdateData_One(item);
+                //    Status = 2;
+                //}
+
+                RetName res = new RetName();
+                res.status = "S";
+                //if (Status == 1)
+                //{
+                    res.message = "Insert success";
+                //}
+                //else if (Status == 2)
+                //{
+                //    res.message = "Update success";
+                //}
+                //res.USERNO = USERNO;
+                results.Add(res);
             }
             catch (Exception ex)
             {
@@ -201,15 +277,15 @@ namespace WebAPI.Models.Hr_Register
         {
             List<ViewSummary> results = new List<ViewSummary>();
             ViewSummary summary = new ViewSummary();
-
+            string USERNO = item.USERNO;
             //List<insert_Step_One> One = new List<insert_Step_One>();
             try
             {
                 using (Hr_RegisterDataContext bx = new Hr_RegisterDataContext())
                 {
                     var str_one = (from xx in bx.STEP_ONEs
-                               where xx.USERNO == "HR18030077"
-                               select xx).FirstOrDefault();
+                               where xx.USERNO == USERNO
+                                   select xx).FirstOrDefault();
              
                     insert_Step_One res_one = new insert_Step_One();
 
@@ -239,8 +315,10 @@ namespace WebAPI.Models.Hr_Register
 
                     summary.Step_One = res_one;
 
+                    //-------------------------------------------------------------------------------------------------
+
                     var str_two = (from xx in bx.STEP_TWOs
-                               where xx.USERNO == "HR18030077"
+                               where xx.USERNO == USERNO
                                    select xx).FirstOrDefault();
 
                     insert_Step_Two res_two = new insert_Step_Two();
@@ -262,9 +340,11 @@ namespace WebAPI.Models.Hr_Register
 
                     summary.Step_Two = res_two;
 
+                    //-------------------------------------------------------------------------------------------------
+
                     var str_three_detail = (from xx in bx.STEP_THREE_DETAILs
-                                   where xx.USERNO == "HR18030077"
-                                   select xx).FirstOrDefault();
+                                   where xx.USERNO == USERNO
+                                            select xx).FirstOrDefault();
 
                     Step_Three_DETAIL res_three_detail = new Step_Three_DETAIL();
 
@@ -277,6 +357,126 @@ namespace WebAPI.Models.Hr_Register
                     res_three_detail.HOBBY_ROW4 = str_three_detail.HOBBY_ROW4;
 
                     summary.Detail = res_three_detail;
+
+                    //-------------------------------------------------------------------------------------------------
+
+                    var str_three_eduction = (from xx in bx.STEP_THREE_EDUCTIONs
+                                            where xx.USERNO == USERNO
+                                            select xx);
+
+                    List<Step_Three_EDUCTION> res_three_Eduction = new List<Step_Three_EDUCTION>();
+
+                    foreach (var item_Edu in str_three_eduction)
+                    {
+                        Step_Three_EDUCTION Eduction = new Step_Three_EDUCTION();
+
+                        Eduction.EDUCATION_LV = item_Edu.EDUCATION_LV;
+                        Eduction.EDUCATION_NAME = item_Edu.EDUCATION_NAME;
+                        Eduction.DEGREE = item_Edu.DEGREE;
+                        Eduction.S_YEAR = item_Edu.S_YEAR;
+                        Eduction.E_YEAR = item_Edu.E_YEAR;
+                        Eduction.GPA = decimal.Parse(item_Edu.GPA.ToString());
+                        Eduction.MAJOR = item_Edu.MAJOR;
+
+                        res_three_Eduction.Add(Eduction);
+                    }
+
+                    summary.Eduction = res_three_Eduction;
+
+                    //-------------------------------------------------------------------------------------------------
+
+                    var str_three_employment = (from xx in bx.STEP_THREE_EMPLOYMENTs
+                                              where xx.USERNO == USERNO
+                                              select xx);
+
+                    List<Step_Three_EMPLOYMENT> res_three_Employment = new List<Step_Three_EMPLOYMENT>();
+
+                    foreach (var item_Emp in str_three_employment)
+                    {
+                        Step_Three_EMPLOYMENT Employment = new Step_Three_EMPLOYMENT();
+
+                        Employment.COMPANY_NAME = item_Emp.COMPANY_NAME;
+                        Employment.S_DATE = item_Emp.S_DATE;
+                        Employment.E_DATE = item_Emp.E_DATE;
+                        Employment.POSITION = item_Emp.POSITION;
+                        Employment.SALARY = item_Emp.SALARY;
+                        Employment.DETAIL = item_Emp.DETAIL;
+                        Employment.LEAVING = item_Emp.LEAVING;
+
+                        res_three_Employment.Add(Employment);
+                    }
+
+                    summary.Employment = res_three_Employment;
+
+                    //-------------------------------------------------------------------------------------------------
+
+                    var str_three_language = (from xx in bx.STEP_THREE_LANGUAGEs
+                                                where xx.USERNO == USERNO
+                                                select xx);
+
+                    List<Step_Three_LANGUAGE> res_three_Language = new List<Step_Three_LANGUAGE>();
+
+                    foreach (var item_lan in str_three_language)
+                    {
+                        Step_Three_LANGUAGE Language = new Step_Three_LANGUAGE();
+
+                        Language.LANGUAGE = item_lan.LANGUAGE;
+                        Language.SPEAKING =item_lan.SPEAKING;
+                        Language.READING = item_lan.READING;
+                        Language.WRITING = item_lan.WRITING;
+
+                        res_three_Language.Add(Language);
+                    }
+
+                    summary.Language = res_three_Language;
+
+                    //-------------------------------------------------------------------------------------------------
+
+                    var str_three_training = (from xx in bx.STEP_THREE_TRAININGs
+                                              where xx.USERNO == USERNO
+                                              select xx);
+
+                    List<Step_Three_TRAINING> res_three_Training = new List<Step_Three_TRAINING>();
+
+                    foreach (var item_Tra in str_three_training)
+                    {
+                        Step_Three_TRAINING Training = new Step_Three_TRAINING();
+
+                        Training.DATE = DateTime.Parse(item_Tra.DATE.ToString());
+                        Training.COURSE = item_Tra.COURSE;
+                        Training.INSTITUTION = item_Tra.INSTITUTION;
+                        Training.S_DATE = DateTime.Parse(item_Tra.S_DATE.ToString());
+                        Training.E_DATE = DateTime.Parse(item_Tra.E_DATE.ToString());
+
+                        res_three_Training.Add(Training);
+                    }
+
+                    summary.Training = res_three_Training;
+
+                    //-------------------------------------------------------------------------------------------------
+
+                    var str_four = (from xx in bx.STEP_FOURs
+                                    where xx.USERNO == USERNO
+                                    select xx);
+
+                    List<Step_Four> res_four = new List<Step_Four>();
+
+                    foreach (var item_Four in str_four)
+                    {
+                        Step_Four Four = new Step_Four();
+
+                        Four.Q_ID = item_Four.Q_ID;
+                        Four.CHOOSE = item_Four.CHOOSE;
+                        Four.DETAIL_ROW1 = item_Four.DETAIL_ROW1;
+                        Four.DETAIL_ROW2 = item_Four.DETAIL_ROW2;
+                        Four.DETAIL_ROW3 = item_Four.DETAIL_ROW3;
+
+                        res_four.Add(Four);
+                    }
+
+                    summary.Step_Four = res_four;
+
+                    //-------------------------------------------------------------------------------------------------
 
                     results.Add(summary);
                 }
@@ -629,6 +829,7 @@ namespace WebAPI.Models.Hr_Register
 
                             value_Four.USERNO = item.USERNO;
                             value_Four.Q_ID = ux.Q_ID;
+                            value_Four.CHOOSE = ux.CHOOSE;
                             value_Four.DETAIL_ROW1 = ux.DETAIL_ROW1;
                             value_Four.DETAIL_ROW2 = ux.DETAIL_ROW2;
                             value_Four.DETAIL_ROW3 = ux.DETAIL_ROW3;
@@ -637,6 +838,15 @@ namespace WebAPI.Models.Hr_Register
                             bx.STEP_FOURs.InsertOnSubmit(value_Four);
                             bx.SubmitChanges();
                         }
+
+                        var Starting_date = (from xx in bx.STEP_TWOs
+                                             where xx.USERNO == item.USERNO
+                                             select xx).FirstOrDefault();
+
+                        Starting_date.STARTING_DATE = item.STARTINT_DATE;
+                        //bx.STEP_TWOs.InsertOnSubmit(Starting_date);
+                        bx.SubmitChanges();
+
                         ts.Complete();
                     }
                     catch (Exception ex)
@@ -664,33 +874,8 @@ namespace WebAPI.Models.Hr_Register
                                    where xx.USERNO == item._USERNO
                                    select xx).FirstOrDefault();
 
-                        str.POSITION = item._POSITION;
-                        str.FULLNAME_TH = item._FULLNAME_TH;
-                        str.NICKNAME_TH = item._NICKNAME_TH;
-                        str.FULLNAME_EN = item._FULLNAME_EN;
-                        str.NICKNAME_EN = item._NICKNAME_EN;
-                        str.PEOPLEID = item._PEOPLEID;
-                        str.ZONE = item._ZONE;
-                        str.PROVINCE_BIRTH = item._PROVINCE_BIRTH;
-                        str.BIRTHDATE = item._BIRTHDATE;
-                        str.AGE = item._AGE;
-                        str.WEIGHT = item._WEIGHT;
-                        str.HEIGHT = item._HEIGHT;
-                        str.ADDR_ROW1 = item._ADDR_ROW1;
-                        str.ADDR_ROW2 = item._ADDR_ROW2;
-                        str.ADDR_ROW3 = item._ADDR_ROW3;
-                        str.ADDR_HOME1 = item._ADDR_HOME1;
-                        str.ADDR_HOME2 = item._ADDR_HOME2;
-                        str.ADDR_HOME3 = item._ADDR_HOME3;
-                        str.ADDR_TEL = item._ADDR_TEL;
-                        str.ADDR_MOBILE = item._ADDR_MOBILE;
-                        str.ADDR_EMAIL = item._ADDR_EMAIL;
-                        str.ADDR_PHOTO = item._ADDR_PHOTO;
-                        //str.WORKDATE = DateTime.Now;
-                        USERNO = item._USERNO;
-
+                        bx.STEP_ONEs.DeleteOnSubmit(str);
                         bx.SubmitChanges();
-                        //ts.Complete();
                     }
                     catch (Exception ex)
                     {
@@ -699,7 +884,7 @@ namespace WebAPI.Models.Hr_Register
                     }
                 }
             //}
-            return USERNO;
+            return USERNO = item._USERNO;
         }
 
         private string UpdateData_Two(insert_Step_Two item)
@@ -713,20 +898,7 @@ namespace WebAPI.Models.Hr_Register
                                where xx.USERNO == item.USERNO
                                select xx).FirstOrDefault();
 
-                    USERNO = item.USERNO;
-                    str.MARITAL = item.MARITAL;
-                    str.CHILDEN = item.CHILDEN;
-                    str.SPOUSE_NAME = item.SPOUSE_NAME;
-                    str.SPOUSE_AGE = item.SPOUSE_AGE;
-                    str.SPOUSE_OCCUPATION = item.SPOUSE_OCCUPATION;
-                    str.SPOUSE_OFFICE = item.SPOUSE_OFFICE;
-                    str.SPOUSE_PHONE = item.SPOUSE_PHONE;
-                    str.EMERGENCY = item.EMERGENCY;
-                    str.EMERGENCY_ROW1 = item.EMERGENCY_ROW1;
-                    str.EMERGENCY_ROW2 = item.EMERGENCY_ROW2;
-                    str.EMERGENCY_RELATIONSHIP = item.EMERGENCY_RELATIONSHIP;
-                    str.EMERGENCY_PHONE = item.EMERGENCY_PHONE;
-
+                    bx.STEP_TWOs.DeleteOnSubmit(str);
                     bx.SubmitChanges();
                     //ts.Complete();
                 }
@@ -737,7 +909,113 @@ namespace WebAPI.Models.Hr_Register
                 }
             }
             //}
-            return USERNO;
+            return USERNO = item.USERNO;
+        }
+
+        private string UpdateData_Three(insert_Step_Three item)
+        {
+            string USERNO;
+            using (Hr_RegisterDataContext bx = new Hr_RegisterDataContext())
+            {
+                try
+                {
+                    var value_Eduction = (from xx in bx.STEP_THREE_EDUCTIONs
+                                          where xx.USERNO == item.USERNO
+                                          select xx);
+
+                    foreach (var ux in value_Eduction)
+                    {
+                        bx.STEP_THREE_EDUCTIONs.DeleteOnSubmit(ux);
+                    }
+                    bx.SubmitChanges();
+
+                    //----------------------------------------------------------------------------------
+
+                    var value_Training = (from xx in bx.STEP_THREE_TRAININGs
+                                          where xx.USERNO == item.USERNO
+                                          select xx);
+
+                    foreach (var ux in value_Training)
+                    {
+                        bx.STEP_THREE_TRAININGs.DeleteOnSubmit(ux);
+                    }
+                    bx.SubmitChanges();
+
+                    //----------------------------------------------------------------------------------
+
+                    //STEP_THREE_DETAIL value_Detail = new STEP_THREE_DETAIL();
+                    var value_Detail = (from xx in bx.STEP_THREE_DETAILs
+                                          where xx.USERNO == item.USERNO
+                                          select xx).FirstOrDefault();
+
+                    bx.STEP_THREE_DETAILs.DeleteOnSubmit(value_Detail);
+                    bx.SubmitChanges();
+
+                    //----------------------------------------------------------------------------------
+
+                    //List<Step_Three_LANGUAGE> Language = new List<Step_Three_LANGUAGE>();
+                    var value_Language = (from xx in bx.STEP_THREE_LANGUAGEs
+                                          where xx.USERNO == item.USERNO
+                                          select xx);
+
+                    foreach (var ux in value_Language)
+                    {
+                        bx.STEP_THREE_LANGUAGEs.DeleteOnSubmit(ux);
+                    }
+                    bx.SubmitChanges();
+
+                    //----------------------------------------------------------------------------------
+
+
+                    //List<Step_Three_EMPLOYMENT> Employment = new List<Step_Three_EMPLOYMENT>();
+                    var value_Employment = (from xx in bx.STEP_THREE_EMPLOYMENTs
+                                            where xx.USERNO == item.USERNO
+                                            select xx);
+
+                    foreach (var ux in value_Employment)
+                    {
+                        bx.STEP_THREE_EMPLOYMENTs.DeleteOnSubmit(ux);
+                    }
+                    bx.SubmitChanges();
+
+                }
+                catch (Exception ex)
+                {
+                    throw new ArgumentException(
+                                $"{ex.Message} ");
+                }
+            }
+            //}
+            return USERNO = item.USERNO;
+        }
+
+        private string UpdateData_Four(insert_Step_Four item)
+        {
+            string USERNO;
+
+            using (Hr_RegisterDataContext bx = new Hr_RegisterDataContext())
+            {
+                try
+                {
+                    var Four = (from xx in bx.STEP_FOURs
+                                         where xx.USERNO == item.USERNO
+                                         select xx);
+            
+                    foreach (var ux in Four)
+                    {
+                        bx.STEP_FOURs.DeleteOnSubmit(ux);
+                    }
+            
+                    bx.SubmitChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw new ArgumentException(
+                                $"{ex.Message} ");
+                }
+            }
+
+            return USERNO = item.USERNO;
         }
 
 

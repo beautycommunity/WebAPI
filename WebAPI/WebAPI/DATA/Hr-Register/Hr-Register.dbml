@@ -28,6 +28,74 @@
       <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.STEP_THREE_DETAIL" Member="STEP_THREE_DETAILs">
+    <Type Name="STEP_THREE_DETAIL">
+      <Column Name="USERNO" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CURRENTLY_STUDY" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="STUDY_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STUDY_MAJOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HOBBY_ROW1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="HOBBY_ROW2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="HOBBY_ROW3" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="HOBBY_ROW4" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MAS_STEP_FOUR" Member="MAS_STEP_FOURs">
+    <Type Name="MAS_STEP_FOUR">
+      <Column Name="Q_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Q_NAME_TH" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Q_NAME_EN" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STEP_THREE_EDUCTION" Member="STEP_THREE_EDUCTIONs">
+    <Type Name="STEP_THREE_EDUCTION">
+      <Column Name="USERNO" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EDUCATION_LV" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EDUCATION_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DEGREE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="S_YEAR" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="E_YEAR" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="GPA" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="MAJOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STEP_THREE_EMPLOYMENT" Member="STEP_THREE_EMPLOYMENTs">
+    <Type Name="STEP_THREE_EMPLOYMENT">
+      <Column Name="USERNO" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="COMPANY_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="S_DATE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="E_DATE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="POSITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SALARY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DETAIL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LEAVING" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STEP_THREE_LANGUAGE" Member="STEP_THREE_LANGUAGEs">
+    <Type Name="STEP_THREE_LANGUAGE">
+      <Column Name="USERNO" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LANGUAGE" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SPEAKING" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="READING" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="WRITING" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STEP_THREE_TRAINING" Member="STEP_THREE_TRAININGs">
+    <Type Name="STEP_THREE_TRAINING">
+      <Column Name="USERNO" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="COURSE" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="INSTITUTION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="S_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="E_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.STEP_TWO" Member="STEP_TWOs">
     <Type Name="STEP_TWO">
       <Column Name="USERNO" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -47,74 +115,14 @@
       <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.STEP_THREE_DETAIL" Member="STEP_THREE_DETAILs">
-    <Type Name="STEP_THREE_DETAIL">
-      <Column Name="USERNO" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CURRENTLY_STUDY" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-      <Column Name="STUDY_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="STUDY_MAJOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="HOBBY_ROW1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="HOBBY_ROW2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="HOBBY_ROW3" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="HOBBY_ROW4" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.STEP_THREE_EMPLOYMENT" Member="STEP_THREE_EMPLOYMENTs">
-    <Type Name="STEP_THREE_EMPLOYMENT">
-      <Column Name="USERNO" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="COMPANY_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="S_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="E_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="POSITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="SALARY" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DETAIL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="LEAVING" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.STEP_THREE_LANGUAGE" Member="STEP_THREE_LANGUAGEs">
-    <Type Name="STEP_THREE_LANGUAGE">
-      <Column Name="USERNO" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="LANGUAGE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="SPEAKING" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="READING" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="WRITING" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.STEP_THREE_TRAINING" Member="STEP_THREE_TRAININGs">
-    <Type Name="STEP_THREE_TRAINING">
-      <Column Name="USERNO" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="COURSE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="INSTITUTION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="S_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="E_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.STEP_FOUR" Member="STEP_FOURs">
     <Type Name="STEP_FOUR">
-      <Column Name="USERNO" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="Q_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CHOOSE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="USERNO" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Q_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CHOOSE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="DETAIL_ROW1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="DETAIL_ROW2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="DETAIL_ROW3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.STEP_THREE_EDUCTION" Member="STEP_THREE_EDUCTIONs">
-    <Type Name="STEP_THREE_EDUCTION">
-      <Column Name="USERNO" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="EDUCATION_LV" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="EDUCATION_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="DEGREE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="S_YEAR" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="E_YEAR" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="GPA" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="MAJOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>

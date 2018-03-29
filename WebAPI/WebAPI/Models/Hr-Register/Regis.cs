@@ -12,12 +12,13 @@ namespace WebAPI.Models.Hr_Register
         public string USERNO { get; set; }
         public insert_Step_One Step_One { get; set; }
         public insert_Step_Two Step_Two { get; set; }
+        //public insert_Step_Three Step_Three { get; set; }
         public Step_Three_DETAIL Detail { get; set; }
-        //public List<Step_Three_EDUCTION> Eduction { get; set; }
-        //public List<Step_Three_EMPLOYMENT> Employment { get; set; }
-        //public List<Step_Three_LANGUAGE> Language { get; set; }
-        //public List<Step_Three_TRAINING> Training { get; set; }
-        //public insert_Step_Four Four { get; set; }
+        public List<Step_Three_EDUCTION> Eduction { get; set; }
+        public List<Step_Three_EMPLOYMENT> Employment { get; set; }
+        public List<Step_Three_LANGUAGE> Language { get; set; }
+        public List<Step_Three_TRAINING> Training { get; set; }
+        public List<Step_Four> Step_Four { get; set; }
     }
 
     [JsonObject(IsReference = true)]
@@ -120,8 +121,8 @@ namespace WebAPI.Models.Hr_Register
     public class Step_Three_EMPLOYMENT
     {
         public string COMPANY_NAME { get; set; }
-        public DateTime S_DATE { get; set; }
-        public DateTime E_DATE { get; set; }
+        public string S_DATE { get; set; }
+        public string E_DATE { get; set; }
         public string POSITION { get; set; }
         public int? SALARY { get; set; }
         public string DETAIL { get; set; }
@@ -142,11 +143,11 @@ namespace WebAPI.Models.Hr_Register
     [JsonObject(IsReference = true)]
     public class Step_Three_TRAINING
     {
-        public DateTime DATE;
-        public string COURSE;
-        public string INSTITUTION;
-        public DateTime S_DATE;
-        public DateTime E_DATE;
+        public DateTime DATE { get; set; }
+        public string COURSE { get; set; }
+        public string INSTITUTION { get; set; }
+        public DateTime S_DATE { get; set; }
+        public DateTime E_DATE { get; set; }
         public int FLAG { get; set; }
     }
     
@@ -165,6 +166,7 @@ namespace WebAPI.Models.Hr_Register
     public class Step_Four
     {
         public int Q_ID { get; set; }
+        public string CHOOSE { get; set; }
         public string DETAIL_ROW1 { get; set; }
         public string DETAIL_ROW2 { get; set; }
         public string DETAIL_ROW3 { get; set; }
