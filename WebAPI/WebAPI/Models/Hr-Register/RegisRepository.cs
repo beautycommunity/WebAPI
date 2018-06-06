@@ -733,11 +733,11 @@ namespace WebAPI.Models.Hr_Register
                             STEP_THREE_TRAINING value_Training = new STEP_THREE_TRAINING();
 
                             value_Training.USERNO = item.USERNO;
-                            value_Training.DATE = ux.DATE;
+                            value_Training.DATE = ux.DATE.AddYears(543);
                             value_Training.COURSE = ux.COURSE;
                             value_Training.INSTITUTION = ux.INSTITUTION;
-                            value_Training.S_DATE = ux.S_DATE;
-                            value_Training.E_DATE = ux.E_DATE;
+                            value_Training.S_DATE = ux.S_DATE.AddYears(543);
+                            value_Training.E_DATE = ux.E_DATE.AddYears(543);
                             value_Training.FLAG = 0;
 
                             bx.STEP_THREE_TRAININGs.InsertOnSubmit(value_Training);
