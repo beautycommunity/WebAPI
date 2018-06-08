@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbMasIT" Class="LoginMainDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.10.202;Initial Catalog=dbMasIT;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="dbMasITConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.MAS_USER_SYSTEM" Member="MAS_USER_SYSTEMs">
+    <Type Name="MAS_USER_SYSTEM">
+      <Column Name="STCODE" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PASS" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="POSITION" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="DEGREE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DPCODE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DPNAME" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="FULLNAME_EN" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NICKNAME" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="STARTDATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ENDDATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="BIRTHDATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DELETED" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="DATECREATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

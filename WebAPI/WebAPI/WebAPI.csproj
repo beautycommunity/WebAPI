@@ -181,7 +181,13 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Hr-Register\RegisterController.cs" />
+    <Compile Include="Controllers\LogIn\LogInController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DATA\dbMasIT\LoginMain.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginMain.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DATA\Hr-Register\Hr-Register.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -193,6 +199,9 @@
     <Compile Include="Models\Hr-Register\Regis.cs" />
     <Compile Include="Models\Hr-Register\IRegisRepository.cs" />
     <Compile Include="Models\Hr-Register\RegisRepository.cs" />
+    <Compile Include="Models\LogIn\ILoginRepository.cs" />
+    <Compile Include="Models\LogIn\Login.cs" />
+    <Compile Include="Models\LogIn\LoginRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -231,6 +240,14 @@
       <LastGenOutput>Hr-Register.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="DATA\dbMasIT\LoginMain.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>LoginMain.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="DATA\dbMasIT\LoginMain.dbml.layout">
+      <DependentUpon>LoginMain.dbml</DependentUpon>
+    </None>
     <None Include="DATA\Hr-Register\Hr-Register.dbml.layout">
       <DependentUpon>Hr-Register.dbml</DependentUpon>
     </None>
@@ -260,6 +277,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Default\" />
+    <Folder Include="Views\LogIn\" />
     <Folder Include="Views\Register\" />
   </ItemGroup>
   <ItemGroup>
