@@ -42,6 +42,10 @@ namespace WebAPI.Models.LogIn
                         res.STCODE = sql.STCODE;
                         res.FULLNAME = sql.FULLNAME;
                         res.NICKNAME = sql.NICKNAME;
+                        res.FULLNAME_EN = sql.FULLNAME_EN;
+                        res.EMAIL = sql.EMAIL;
+                        res.DPCODE = sql.DPCODE;
+                        res.DPNAME = sql.DPNAME;
                     }
                     else
                     {

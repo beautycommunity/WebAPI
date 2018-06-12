@@ -14,6 +14,10 @@ namespace WebAPI.Models.LogIn
         public string STCODE { get; set; }
         public string FULLNAME { get; set; }
         public string NICKNAME { get; set; }
+        public string DPCODE { get; set; }
+        public string EMAIL { get; set; }
+        public string DPNAME { get; set; }
+        public string FULLNAME_EN { get; set; }
     }
 
     [JsonObject(IsReference = true)]
