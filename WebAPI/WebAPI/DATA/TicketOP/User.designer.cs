@@ -99,6 +99,14 @@ namespace WebAPI.DATA.TicketOP
 				return this.GetTable<VW_USER_ALL>();
 			}
 		}
+		
+		public System.Data.Linq.Table<VW_USER_FOR_LE> VW_USER_FOR_LEs
+		{
+			get
+			{
+				return this.GetTable<VW_USER_FOR_LE>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MAS_USER")]
@@ -1066,6 +1074,159 @@ namespace WebAPI.DATA.TicketOP
 				if ((this._Expr1 != value))
 				{
 					this._Expr1 = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[VW_USER_FOR-LE]")]
+	public partial class VW_USER_FOR_LE
+	{
+		
+		private int _US_ID;
+		
+		private string _STCODE;
+		
+		private string _NAME;
+		
+		private string _NICKNAME;
+		
+		private string _MAIL;
+		
+		private string _DPCODE;
+		
+		private byte _A_ID;
+		
+		private string _ANAME;
+		
+		public VW_USER_FOR_LE()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_US_ID", DbType="Int NOT NULL")]
+		public int US_ID
+		{
+			get
+			{
+				return this._US_ID;
+			}
+			set
+			{
+				if ((this._US_ID != value))
+				{
+					this._US_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STCODE", DbType="VarChar(50)")]
+		public string STCODE
+		{
+			get
+			{
+				return this._STCODE;
+			}
+			set
+			{
+				if ((this._STCODE != value))
+				{
+					this._STCODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(101)")]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this._NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NICKNAME", DbType="VarChar(50)")]
+		public string NICKNAME
+		{
+			get
+			{
+				return this._NICKNAME;
+			}
+			set
+			{
+				if ((this._NICKNAME != value))
+				{
+					this._NICKNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAIL", DbType="VarChar(255)")]
+		public string MAIL
+		{
+			get
+			{
+				return this._MAIL;
+			}
+			set
+			{
+				if ((this._MAIL != value))
+				{
+					this._MAIL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPCODE", DbType="NVarChar(10)")]
+		public string DPCODE
+		{
+			get
+			{
+				return this._DPCODE;
+			}
+			set
+			{
+				if ((this._DPCODE != value))
+				{
+					this._DPCODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A_ID", DbType="TinyInt NOT NULL")]
+		public byte A_ID
+		{
+			get
+			{
+				return this._A_ID;
+			}
+			set
+			{
+				if ((this._A_ID != value))
+				{
+					this._A_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ANAME", DbType="NVarChar(50)")]
+		public string ANAME
+		{
+			get
+			{
+				return this._ANAME;
+			}
+			set
+			{
+				if ((this._ANAME != value))
+				{
+					this._ANAME = value;
 				}
 			}
 		}

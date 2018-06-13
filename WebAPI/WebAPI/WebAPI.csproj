@@ -182,6 +182,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Hr-Register\RegisterController.cs" />
     <Compile Include="Controllers\LogIn\LogInController.cs" />
+    <Compile Include="Controllers\Ticket_LE\TicketLEController.cs" />
     <Compile Include="Controllers\Ticket_OP\TicketOPController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DATA\dbMasIT\LoginMain.designer.cs">
@@ -193,6 +194,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Hr-Register.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\TicketLE\TicketLE.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TicketLE.dbml</DependentUpon>
     </Compile>
     <Compile Include="DATA\TicketOP\TicketOP.designer.cs">
       <AutoGen>True</AutoGen>
@@ -213,6 +219,9 @@
     <Compile Include="Models\LogIn\ILoginRepository.cs" />
     <Compile Include="Models\LogIn\Login.cs" />
     <Compile Include="Models\LogIn\LoginRepository.cs" />
+    <Compile Include="Models\Ticket_LE\ITicketLE.cs" />
+    <Compile Include="Models\Ticket_LE\MTicket_LE.cs" />
+    <Compile Include="Models\Ticket_LE\TicketLERepository.cs" />
     <Compile Include="Models\Ticket_OP\ITicketOP.cs" />
     <Compile Include="Models\Ticket_OP\MTicket_OP.cs" />
     <Compile Include="Models\Ticket_OP\TicketOPRepository.cs" />
@@ -270,6 +279,14 @@
       <LastGenOutput>TicketOP.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="DATA\TicketLE\TicketLE.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>TicketLE.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="DATA\TicketLE\TicketLE.dbml.layout">
+      <DependentUpon>TicketLE.dbml</DependentUpon>
+    </None>
     <None Include="DATA\TicketOP\TicketOP.dbml.layout">
       <DependentUpon>TicketOP.dbml</DependentUpon>
     </None>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="TicketLE">
+  <DataContextMoniker Name="/TicketLEDataContext" />
+  <nestedChildShapes>
+    <classShape Id="82875150-68e4-4923-bf55-278184c35bf1" absoluteBounds="0.75, 0.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/TicketLEDataContext/MAS_APPROVE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8f6cf534-2bcc-40b5-9c98-94ca40737bb0" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="41681b42-b90b-46a9-a771-b7cee894632e" absoluteBounds="0.75, 2.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/TicketLEDataContext/MAS_DOC" />
+      <nestedChildShapes>
+        <elementListCompartment Id="11913799-f0d4-499a-a946-5d7f50343d9c" absoluteBounds="0.765, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="48965e77-1b78-453f-9f46-eb844de3c6b7" absoluteBounds="3.75, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/TicketLEDataContext/MAS_SS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c4a27516-0159-4c23-86a1-3c32f2f5c1b8" absoluteBounds="3.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="705c7d4d-08b3-4529-adb7-2f6372256259" absoluteBounds="3.75, 3.75, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/TicketLEDataContext/TASK_MAIN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4013a9a0-8eee-46e3-9a31-edb199ac9d66" absoluteBounds="3.765, 4.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="61723fb0-ad41-4628-a215-b11e52b6536a" absoluteBounds="6.75, 0.75, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/TicketLEDataContext/TASK_SUB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a6e6897a-df6e-434c-ba18-17fab7c0ad94" absoluteBounds="6.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="02b4df00-8118-472a-9093-e69dd8fec87c" absoluteBounds="6.75, 2.5, 2, 4.6554182942708326">
+      <DataClassMoniker Name="/TicketLEDataContext/VW_TICKET" />
+      <nestedChildShapes>
+        <elementListCompartment Id="679ae458-3749-43d1-b15c-93af4b3d91ff" absoluteBounds="6.765, 2.96, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

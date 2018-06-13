@@ -58,4 +58,16 @@
       <Column Name="Expr1" Type="System.Char" DbType="NChar(1)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.[VW_USER_FOR-LE]" Member="VW_USER_FOR_LEs">
+    <Type Name="VW_USER_FOR_LE">
+      <Column Name="US_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="STCODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(101)" CanBeNull="true" />
+      <Column Name="NICKNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MAIL" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DPCODE" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="A_ID" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="ANAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>
