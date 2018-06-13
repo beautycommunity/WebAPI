@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 11.125" name="TicketOP">
+  <DataContextMoniker Name="/TicketOPDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d958f4ba-6451-4eb1-884a-7547896892bd" absoluteBounds="0.75, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/TicketOPDataContext/DEV_TASK_FLAG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a9d8d7f4-0a47-445a-bb99-7e7b11d60712" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e5ed2541-f6af-4a78-81bd-066ddde324db" absoluteBounds="3.75, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/TicketOPDataContext/MAS_AREA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="53d62ab1-221c-49d1-b5ab-83cde48070aa" absoluteBounds="3.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e7e49d0c-e917-473b-8c14-46efeaf502a7" absoluteBounds="0.75, 3.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/TicketOPDataContext/MAS_WH" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c008c108-9878-483b-8538-693753c5e3fd" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8f0d6762-d21b-49bb-8224-fa6ae8bccc99" absoluteBounds="3.75, 3.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/TicketOPDataContext/TRN_TICKET" />
+      <nestedChildShapes>
+        <elementListCompartment Id="426190e6-bbe4-4b9e-8c3d-af7840b9799d" absoluteBounds="3.765, 4.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9eafac2a-4942-4397-b186-6c3225129289" absoluteBounds="6.75, 0.75, 2, 1.9631982421875003">
+      <DataClassMoniker Name="/TicketOPDataContext/TRN_TICKET_F" />
+      <nestedChildShapes>
+        <elementListCompartment Id="87611ba3-afe1-464c-b0e9-2c0cf2b4ac1d" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ea4202c0-d095-4bfe-92c1-3c2066c78de5" absoluteBounds="6.75, 3.75, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/TicketOPDataContext/TRN_TICKET_I" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3647942b-fd80-4355-af8c-a7ae6aa65078" absoluteBounds="6.765, 4.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5df81674-9026-4265-b639-e8a61e9b055d" absoluteBounds="0.75, 6.75, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/TicketOPDataContext/VW_TICKET" />
+      <nestedChildShapes>
+        <elementListCompartment Id="01ff3d16-cd2e-41cd-bfb4-99c927f08177" absoluteBounds="0.765, 7.21, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="de142892-0f2a-4e8a-8667-5e64f1eb616b" absoluteBounds="6.75, 6.75, 2, 4.0785139973958318">
+      <DataClassMoniker Name="/TicketOPDataContext/VW_TICKET_DETAIL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a788c8a3-11d7-4100-b86c-2dc0b8d936f5" absoluteBounds="6.765, 7.21, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

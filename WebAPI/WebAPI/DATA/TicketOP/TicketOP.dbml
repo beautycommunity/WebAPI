@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="OPTicket" Class="TicketOPDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.10.202;Initial Catalog=OPTicket;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="OPTicketConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DEV_TASK_FLAG" Member="DEV_TASK_FLAGs">
+    <Type Name="DEV_TASK_FLAG">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Type_name" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="File_img" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MAS_AREA" Member="MAS_AREAs">
+    <Type Name="MAS_AREA">
+      <Column Name="WHCODE" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AREA" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="BRAND" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MAS_WH" Member="MAS_WHs">
+    <Type Name="MAS_WH">
+      <Column Name="BRAND" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="WHCODE" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WHNAME" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DBNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ADDR_PROVINCE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ADDR_TEL" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TRN_TICKET" Member="TRN_TICKETs">
+    <Type Name="TRN_TICKET">
+      <Column Name="TK_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TICKETNO" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="WHCODE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="WHNAME" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AREA" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DETAIL" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="STCODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="SS_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TRN_TICKET_F" Member="TRN_TICKET_Fs">
+    <Type Name="TRN_TICKET_F">
+      <Column Name="TK_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ORDERNO" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FILENO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PATH1" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="PATH2" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="PATH3" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TRN_TICKET_I" Member="TRN_TICKET_Is">
+    <Type Name="TRN_TICKET_I">
+      <Column Name="TK_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ORDERNO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TK_MESAGE" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STCODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_TICKET" Member="VW_TICKETs">
+    <Type Name="VW_TICKET">
+      <Column Name="TK_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TICKETNO" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="WHCODE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="WHNAME" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AREA" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DETAIL" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="NICKNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATETIME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="TNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BRAND" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="SS_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_TICKET_DETAIL" Member="VW_TICKET_DETAILs">
+    <Type Name="VW_TICKET_DETAIL">
+      <Column Name="TK_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TICKETNO" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="WHCODE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="WHNAME" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AREA" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DETAIL" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="NICKNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATETIME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="TNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BRAND" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="SS_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ORDERNO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TK_MESAGE" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Expr1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DETAILDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
