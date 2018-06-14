@@ -181,6 +181,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Hr-Register\RegisterController.cs" />
+    <Compile Include="Controllers\HR_SALE\HR_SALEController.cs" />
     <Compile Include="Controllers\LogIn\LogInController.cs" />
     <Compile Include="Controllers\Ticket_LE\TicketLEController.cs" />
     <Compile Include="Controllers\Ticket_OP\TicketOPController.cs" />
@@ -194,6 +195,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Hr-Register.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\HR-SALE\HR-SALE.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HR-SALE.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\HR-SALE\Mona77.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Mona77.dbml</DependentUpon>
     </Compile>
     <Compile Include="DATA\TicketLE\TicketLE.designer.cs">
       <AutoGen>True</AutoGen>
@@ -216,6 +227,9 @@
     <Compile Include="Models\Hr-Register\Regis.cs" />
     <Compile Include="Models\Hr-Register\IRegisRepository.cs" />
     <Compile Include="Models\Hr-Register\RegisRepository.cs" />
+    <Compile Include="Models\HR_SALE\HR_SALERepository.cs" />
+    <Compile Include="Models\HR_SALE\IHR_SALE.cs" />
+    <Compile Include="Models\HR_SALE\MHR_SALE.cs" />
     <Compile Include="Models\LogIn\ILoginRepository.cs" />
     <Compile Include="Models\LogIn\Login.cs" />
     <Compile Include="Models\LogIn\LoginRepository.cs" />
@@ -284,6 +298,22 @@
       <LastGenOutput>TicketLE.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="DATA\HR-SALE\HR-SALE.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>HR-SALE.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="DATA\HR-SALE\HR-SALE.dbml.layout">
+      <DependentUpon>HR-SALE.dbml</DependentUpon>
+    </None>
+    <Content Include="DATA\HR-SALE\Mona77.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Mona77.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="DATA\HR-SALE\Mona77.dbml.layout">
+      <DependentUpon>Mona77.dbml</DependentUpon>
+    </None>
     <None Include="DATA\TicketLE\TicketLE.dbml.layout">
       <DependentUpon>TicketLE.dbml</DependentUpon>
     </None>

@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HR-SALE" Class="HR_SALEDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.10.202;Initial Catalog=HR-SALE;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="HR_SALEConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.MAS_USER_SYSTEM" Member="MAS_USER_SYSTEMs">
+    <Type Name="MAS_USER_SYSTEM">
+      <Column Name="STCODE" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PASS" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="POSITION" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="DEGREE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DPCODE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DPNAME" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="FULLNAME_EN" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NICKNAME" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="STARTDATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ENDDATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="BIRTHDATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DELETED" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="DATECREATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MAS_POSITION" Member="MAS_POSITIONs">
+    <Type Name="MAS_POSITION">
+      <Column Name="POSITION_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="POSITIONE_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HR_SALE_USER" Member="HR_SALE_USERs">
+    <Type Name="HR_SALE_USER">
+      <Column Name="STCODE" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BAL" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TOTAL" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="BAL_MAX" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HR_SALE_PT" Member="HR_SALE_PTs">
+    <Type Name="HR_SALE_PT">
+      <Column Name="STCODE" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ABBNO" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="QTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NET" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PTTIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WORKDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_ORDER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DETEIL" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HR_SALE_PI" Member="HR_SALE_PIs">
+    <Type Name="HR_SALE_PI">
+      <Column Name="STCODE" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ABBNO" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MPCODE" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="QTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PRICE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NET" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PTDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WORKDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HR_LVL" Member="HR_LVLs">
+    <Type Name="HR_LVL">
+      <Column Name="ID_LVL" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LVL" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SECTION" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CBAL" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="BAL" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_DEP" Member="VW_DEPs">
+    <Type Name="VW_DEP">
+      <Column Name="DPCODE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_USER_PRO" Member="VW_USER_PROs">
+    <Type Name="VW_USER_PRO">
+      <Column Name="STCODE" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="DEGREE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DPCODE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DPNAME" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="NICKNAME" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ENDDATE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_SHOW_PRODUCT" Member="VW_SHOW_PRODUCTs">
+    <Type Name="VW_SHOW_PRODUCT">
+      <Column Name="CPRICE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="STCODE" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="ABBNO" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Expr1" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="QTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NET" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PTDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CDATE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MPCODE" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="MPNAME" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="SPRICE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.HR_SALE_ADDUSER" Method="HR_SALE_ADDUSER">
+    <Parameter Name="user" Type="System.String" DbType="VarChar(5)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.HR_SALE_GetALLManagement" Method="HR_SALE_GetALLManagement">
+    <ElementType Name="HR_SALE_GetALLManagementResult">
+      <Column Name="MPCODE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ABBNAME" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
+      <Column Name="SUM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.HR_SALE_GetBal" Method="HR_SALE_GetBal">
+    <Parameter Name="user" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="HR_SALE_GetBalResult">
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="NET" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.HR_SALE_GetManagement" Method="HR_SALE_GetManagement">
+    <ElementType Name="HR_SALE_GetManagementResult">
+      <Column Name="DPCODE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="STCODE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ABBNO" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="QTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NET" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="PTDATE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_ORDER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.HR_SALE_GETUSER" Method="HR_SALE_GETUSER">
+    <Parameter Name="ID_user" Parameter="iD_user" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="HR_SALE_GETUSERResult">
+      <Column Name="STCODE" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="BAL" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TOTAL" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="BAL_MAX" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CTotal" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="CBal" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ABal" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.HR_SALE_ShowHistory" Method="HR_SALE_ShowHistory">
+    <Parameter Name="user" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="HR_SALE_ShowHistoryResult">
+      <Column Name="STCODE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ABBNO" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="QTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NET" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="WORKDATE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="FLAG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_ORDER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DETEIL" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.HR_SALE_ShowPI" Method="HR_SALE_ShowPI">
+    <Parameter Name="ID_user" Parameter="iD_user" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="ABBNO" Parameter="aBBNO" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="HR_SALE_ShowPIResult">
+      <Column Name="MPCODE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FULLNAME" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="QTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DETEIL" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Row#" Member="Row_" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.HR_SALE_POS" Method="HR_SALE_POS">
+    <ElementType Name="HR_SALE_POSResult">
+      <Column Name="STCODE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ABBNO" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="WORKDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ID_ORDER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MPCODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="QTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PRICE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NET" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

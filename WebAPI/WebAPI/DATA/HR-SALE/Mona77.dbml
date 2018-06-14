@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MONA110601" Class="Mona77DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.1.77,1434;Initial Catalog=MONA110601;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MONA110601ConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.PP_GET_HR_MP" Method="PP_GET_HR_MP">
+    <Parameter Name="seach" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="PP_GET_HR_MPResult">
+      <Column Name="DIMENSION1" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(35) NOT NULL" CanBeNull="false" />
+      <Column Name="NAMETH" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="PRICE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="MAXPRICE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
