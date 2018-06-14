@@ -1,6 +1,12 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using MoreLinq;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
 using WebAPI.DATA.HR_SALE;
@@ -402,6 +408,342 @@ namespace WebAPI.Models.HR_SALE
         }
 
         [HttpPost]
+        [ActionName("SetEndDate")]
+        public IEnumerable<SetPro> SetEndDate(Detail data)
+        {
+            List<SetPro> results = new List<SetPro>();
+
+            try
+            {
+                SetPro getvalue = new SetPro();
+                IQueryable<VW_USER_PRO> View_User;
+
+                using (HR_SALEDataContext db = new HR_SALEDataContext())
+                {
+                    if (data.STCODE != null)
+                    {
+                        var sql = (from xx in db.VW_USER_PROs
+                                   where xx.STCODE == data.STCODE
+                                   select xx).FirstOrDefault();
+
+                        getvalue.STCODE = sql.STCODE;
+                        getvalue.FULLNAME = sql.FULLNAME;
+                        getvalue.ENDDATE = sql.ENDDATE;
+                        getvalue.ERROR = "ChPro";
+                    }
+
+                    View_User = db.VW_USER_PROs
+                        .Where(tik => tik.STCODE.Contains(data.seach) || tik.DPCODE.Contains(data.seach) || tik.FULLNAME.Contains(data.seach) || tik.NICKNAME.Contains(data.seach));
+
+                    foreach (var item in View_User)
+                    {
+                        SetPro.GetUser mp = new SetPro.GetUser();
+
+                        mp.STCODE = item.STCODE;
+                        mp.DEGREE = item.DEGREE;
+                        mp.DPCODE = item.DPCODE;
+                        mp.DPNAME = item.DPNAME;
+                        mp.FULLNAME = item.FULLNAME;
+                        mp.NICKNAME = item.NICKNAME;
+                        mp.ENDDATE = item.ENDDATE;
+
+                        getvalue.ShowUser.Add(mp);
+                    }
+                }
+
+                results.Add(getvalue);
+            }
+            catch (Exception ex)
+            {
+                //Detail res = new Detail();
+                //res.status = "F";
+                //res.message = ex.Message;
+                //results.Add(res);
+            }
+
+            return results.ToArray();
+        }
+
+        [HttpPost]
+        [ActionName("ShowHistory")]
+        public IEnumerable<Management> ShowHistory(Input_Management data)
+        {
+            List<Management> results = new List<Management>();
+
+            try
+            {
+                Management getvalue = new Management();
+
+                getvalue.U_User = data.User;
+                getvalue.U_ABBNO = data.ABBNO;
+
+
+                using (HR_SALEDataContext db = new HR_SALEDataContext())
+                {
+
+                    var sql = db.HR_SALE_ShowHistory(data.USERONLINE);
+                    foreach (var ux in sql)
+                    {
+                        Management.GetManagement mp = new Management.GetManagement();
+
+                        //mp.FULLNAME = ux.FULLNAME;
+                        mp.ID_ST = ux.STCODE;
+                        mp.ABBNO = ux.ABBNO;
+                        mp.QTY = ux.QTY.ToString();
+                        mp.NET = ux.NET;
+                        mp.PTDATE = ux.WORKDATE.ToString();
+                        mp.FLAG = ux.FLAG.ToString();
+                        mp.Deteil = ux.DETEIL;
+
+                        getvalue.AnsManagement.Add(mp);
+                        //lstMP.Add(mp);
+                    }
+
+                    var sql2 = db.HR_SALE_ShowPI(data.USERONLINE, data.ABBNO);
+
+                    foreach (var ux in sql2)
+                    {
+                        Management.GetPro sp = new Management.GetPro();
+
+                        sp.MPCODE = ux.MPCODE;
+                        sp.MPNAME = ux.FULLNAME;
+                        sp.QTY = ux.QTY.ToString();
+                        sp.DETAIL = ux.DETEIL;
+                        sp.row = Int32.Parse(ux.Row_.ToString());
+
+                        getvalue.ShowManagement.Add(sp);
+                        //lstMP.Add(mp);
+                    }
+                }
+
+                results.Add(getvalue);
+            }
+            catch (Exception ex)
+            {
+                //Detail res = new Detail();
+                //res.status = "F";
+                //res.message = ex.Message;
+                //results.Add(res);
+            }
+
+            return results.ToArray();
+        }
+
+        [HttpPost]
+        [ActionName("LVL")]
+        public IEnumerable<lvl> LVL(Inputlvl data)
+        {
+            List<lvl> results = new List<lvl>();
+
+            try
+            {
+                lvl getvalue = new lvl();
+
+                getvalue.CH_LVLNAME = data.LVLNAME;
+                getvalue.CH_SECTION = data.SECTION;
+                getvalue.C_NET = data.NET;
+                getvalue.NEW_NET = data.NET;
+                getvalue.NEW_NET_CB = data.CNET;
+
+                using (HR_SALEDataContext db = new HR_SALEDataContext())
+                {
+                    var sql = (from xx in db.HR_LVLs
+                               select xx);
+
+                    foreach (var item in sql)
+                    {
+                        lvl.Getlvl mp = new lvl.Getlvl();
+
+                        mp.LVLNAME = item.LVL;
+                        mp.SECTION = item.SECTION;
+                        mp.CNET = item.CBAL.ToString();
+                        mp.NET = item.BAL.ToString();
+
+                        getvalue.Showlvl.Add(mp);
+                    }
+                }
+
+                results.Add(getvalue);
+            }
+            catch (Exception ex)
+            {
+                //Detail res = new Detail();
+                //res.status = "F";
+                //res.message = ex.Message;
+                //results.Add(res);
+            }
+
+            return results.ToArray();
+        }
+
+        [HttpPost]
+        [ActionName("Ch_LVL_NOW")]
+        public IEnumerable<Detail> Ch_LVL_NOW(lvl data)
+        {
+            List<Detail> results = new List<Detail>();
+
+            try
+            {
+                Detail getvalue = new Detail();
+
+                using (HR_SALEDataContext db = new HR_SALEDataContext())
+                {
+                    var sql = (from xx in db.HR_LVLs
+                               where xx.LVL == data.CH_LVLNAME
+                               && xx.SECTION == data.CH_SECTION
+                               select xx).FirstOrDefault();
+                    int Set_Net = Convert.ToInt32(Convert.ToDouble(data.NEW_NET));
+                    int Set_Net_CB = Convert.ToInt32(Convert.ToDouble(data.NEW_NET_CB));
+                    sql.BAL = Set_Net;
+                    sql.CBAL = Set_Net_CB;
+
+                    db.SubmitChanges();
+                }
+
+                results.Add(getvalue);
+            }
+            catch (Exception ex)
+            {
+                Detail res = new Detail();
+                res.status = "F";
+                res.message = ex.Message;
+                results.Add(res);
+            }
+
+            return results.ToArray();
+        }
+
+        [HttpPost]
+        [ActionName("SetPass")]
+        public IEnumerable<Detail> SetPass(user data)
+        {
+            List<Detail> results = new List<Detail>();
+
+            try
+            {
+                Detail getvalue = new Detail();
+
+                using (HR_SALEDataContext db = new HR_SALEDataContext())
+                {
+                    if (data.New_Password != null && data.Confirm_Password != null && data.Old_Password != null)
+                    {
+                        var pass = (from xx in db.MAS_USER_SYSTEMs
+                                    where xx.STCODE == data.USERONLINE
+                                    select xx).FirstOrDefault();
+
+                        if (pass.PASS != data.Old_Password)
+                        {
+                            getvalue.Error = "Oldpass";
+                            //TempData["Oldpass"] = "pass";
+                            //return RedirectToAction("ChPass", "Employee");
+                        }
+                        else
+                        {
+                            if (data.New_Password != data.Confirm_Password)
+                            {
+                                getvalue.Error = "pass";
+                                //TempData["pass"] = "pass";
+                                //return RedirectToAction("ChPass", "Employee");
+                            }
+                            else
+                            {
+
+                                var sql = (from xx in db.MAS_USER_SYSTEMs
+                                           where xx.STCODE == data.USERONLINE
+                                           select xx).FirstOrDefault();
+                                sql.PASS = data.New_Password;
+                                db.SubmitChanges();
+
+                                getvalue.Error = "chpass";
+                                //Logout();
+                            }
+                        }
+                    }
+                }
+
+                results.Add(getvalue);
+            }
+            catch (Exception ex)
+            {
+                Detail res = new Detail();
+                res.status = "F";
+                res.message = ex.Message;
+                results.Add(res);
+            }
+
+            return results.ToArray();
+        }
+
+        [HttpPost]
+        [ActionName("Deteil")]
+        public IEnumerable<Detail> Deteil(Management data)
+        {
+            List<Detail> results = new List<Detail>();
+
+            try
+            {
+                Detail getvalue = new Detail();
+
+                using (HR_SALEDataContext db = new HR_SALEDataContext())
+                {
+                    var a = data.ShowManagement.FirstOrDefault();
+                    var sql = (from xx in db.HR_SALE_PTs
+                               where xx.STCODE == data.User
+                               && xx.ABBNO == data.ABB
+                               select xx).FirstOrDefault();
+                    sql.DETEIL = data.Detail;
+
+                    db.SubmitChanges();
+                }
+
+                results.Add(getvalue);
+            }
+            catch (Exception ex)
+            {
+                Detail res = new Detail();
+                res.status = "F";
+                res.message = ex.Message;
+                results.Add(res);
+            }
+
+            return results.ToArray();
+        }
+
+      
+        [HttpPost]
+        [ActionName("Ch_Pro")]
+        public IEnumerable<Detail> Ch_Pro(Detail data)
+        {
+            List<Detail> results = new List<Detail>();
+
+            try
+            {
+                Detail getvalue = new Detail();
+
+                using (HR_SALEDataContext db = new HR_SALEDataContext())
+                {
+                    var sql = (from xx in db.MAS_USER_SYSTEMs
+                               where xx.STCODE == data.STCODE
+                               select xx).FirstOrDefault();
+                    
+                    sql.ENDDATE = data.dateofbirth.AddYears(543);
+                    db.SubmitChanges();
+                }
+
+                results.Add(getvalue);
+            }
+            catch (Exception ex)
+            {
+                Detail res = new Detail();
+                res.status = "F";
+                res.message = ex.Message;
+                results.Add(res);
+            }
+
+            return results.ToArray();
+        }
+
+        [HttpPost]
         [ActionName("Setting_ALL")]
         public IEnumerable<Management_All> Setting_ALL()
         {
@@ -718,5 +1060,7 @@ namespace WebAPI.Models.HR_SALE
 
             return results.ToArray();
         }
+
+
     }
 }

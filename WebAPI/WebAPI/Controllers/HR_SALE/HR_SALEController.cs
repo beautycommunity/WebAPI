@@ -74,5 +74,54 @@ namespace WebAPI.Controllers.HR_SALE
         {
             return repository.Setting_ALL();
         }
+
+        [HttpPost]
+        [ActionName("SetEndDate")]
+        public IEnumerable<SetPro> SetEndDate(Detail data)
+        {
+            return repository.SetEndDate(data);
+        }
+
+        [HttpPost]
+        [ActionName("Ch_Pro")]
+        public IEnumerable<Detail> Ch_Pro(Detail data)
+        {
+            return repository.Ch_Pro(data);
+        }
+
+        [HttpPost]
+        [ActionName("ShowHistory")]
+        public IEnumerable<Management> ShowHistory(Input_Management data)
+        {
+            return repository.ShowHistory(data);
+        }
+
+        [HttpPost]
+        [ActionName("LVL")]
+        public IEnumerable<lvl> LVL(Inputlvl data)
+        {
+            return repository.LVL(data);
+        }
+
+        [HttpPost]
+        [ActionName("Ch_LVL_NOW")]
+        public IEnumerable<Detail> Ch_LVL_NOW(lvl data)
+        {
+            return repository.Ch_LVL_NOW(data);
+        }
+
+        [HttpPost]
+        [ActionName("SetPass")]
+        public IEnumerable<Detail> SetPass(user data)
+        {
+            return repository.SetPass(data);
+        }
+
+        [HttpPost]
+        [ActionName("Deteil")]
+        public IEnumerable<Detail> Deteil(Management data)
+        {
+            return repository.Deteil(data);
+        }
     }
 }

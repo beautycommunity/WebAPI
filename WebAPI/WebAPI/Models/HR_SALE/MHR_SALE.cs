@@ -70,6 +70,7 @@ namespace WebAPI.Models.HR_SALE
     [JsonObject(IsReference = true)]
     public class Detail
     {
+        public DateTime dateofbirth { get; set; }
         public int? q_FLAG { get; set; }
         public object q { get; set; }
         public string GET_MPCODE { get; set; }
@@ -90,6 +91,9 @@ namespace WebAPI.Models.HR_SALE
 
     public class user
     {
+        public string ERROR { get; set; }
+        public string USERONLINE { get; set; }
+
         [Required]
         [Display(Name = "User name")]
         public string User { get; set; }
@@ -155,6 +159,7 @@ namespace WebAPI.Models.HR_SALE
 
     public class Input_Management
     {
+        public string USERONLINE { get; set; }
         public string User { get; set; }
         public string PTDATE { get; set; }
         public string ABBNO { get; set; }
@@ -197,6 +202,9 @@ namespace WebAPI.Models.HR_SALE
             public string DETAIL { get; set; }
         }
 
+        public string User { get; set; }
+        public string ABB { get; set; }
+
         public string Detail { get; set; }
         public string S_User { get; set; }
         public string S_PTDATE { get; set; }
@@ -237,5 +245,81 @@ namespace WebAPI.Models.HR_SALE
         }
 
         public List<GetManagementAll> AnsManagementAll { get; set; }
+    }
+
+    public class SetPro
+    {
+        public SetPro()
+        {
+            this.ShowUser = new List<GetUser>();
+        }
+
+        public class GetUser
+        {
+            public string STCODE { get; set; }
+            public string FULLNAME { get; set; }
+            public string DEGREE { get; set; }
+            public string DPCODE { get; set; }
+            public string DPNAME { get; set; }
+            public string NICKNAME { get; set; }
+
+            //[DataType(DataType.Date)]
+            //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+            public string ENDDATE { get; set; }
+        }
+
+        public string ERROR { get; set; }
+        public string STCODE { get; set; }
+        public string FULLNAME { get; set; }
+        public string ENDDATE { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime NEW_ENDDATE { get; set; }
+
+        //public string CH_LVLNAME { get; set; }
+        //public string CH_SECTION { get; set; }
+        //public string CH_NET { get; set; }
+        //public string NEW_NET { get; set; }
+        //public string NEW_NET_CB { get; set; }
+
+        public List<GetUser> ShowUser { get; set; }
+    }
+
+    public class Inputlvl
+    {
+        public string LVLNAME { get; set; }
+        public string SECTION { get; set; }
+        public string NET { get; set; }
+        public string CNET { get; set; }
+    }
+
+    public class lvl
+    {
+        public lvl()
+        {
+            this.Showlvl = new List<Getlvl>();
+        }
+
+        public class Getlvl
+        {
+            public string LVLNAME { get; set; }
+            public string SECTION { get; set; }
+            public string NET { get; set; }
+            public string CNET { get; set; }
+        }
+
+        public string C_LVLNAME { get; set; }
+        public string C_SECTION { get; set; }
+        public string C_NET { get; set; }
+        public string CB_NET { get; set; }
+
+        public string CH_LVLNAME { get; set; }
+        public string CH_SECTION { get; set; }
+        public string CH_NET { get; set; }
+        public string NEW_NET { get; set; }
+        public string NEW_NET_CB { get; set; }
+
+        public List<Getlvl> Showlvl { get; set; }
     }
 }
